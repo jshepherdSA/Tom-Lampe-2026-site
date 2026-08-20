@@ -96,22 +96,26 @@ export default function HomePage() {
       </section>
 
       {/* proof — the Ledger Rule */}
+      {/* proof — the Ledger Rule, set as an audit sheet */}
       <section aria-labelledby="proof-h" className="bg-inverse-deep">
-        <div className="container-page py-s7">
-          <h2 id="proof-h" className="t-label text-on-inverse">
+        <div className="container-page py-s8">
+          {/* A section heading, not a caption: this was previously an <h2>
+              styled at label size, which flattened the page hierarchy. */}
+          <h2 id="proof-h" className="t-h2 measure text-on-inverse">
             {H.proof.heading}
           </h2>
-          <Reveal className="mt-s5">
-            <LedgerList
-              entries={H.proof.entries}
-              tone="dark"
-              aria-label={H.proof.heading}
-            />
-          </Reveal>
+
+          <LedgerList
+            entries={H.proof.entries}
+            tone="dark"
+            className="mt-s6"
+            aria-label={H.proof.heading}
+          />
+
           <Button
             variant="outlineInverse"
             size="cta"
-            className="mt-s6"
+            className="mt-s5"
             render={<Link href="/record" />}
           >
             {H.proof.cta}

@@ -43,8 +43,9 @@ const buttonVariants = cva(
         "icon-lg": "size-9",
         // ---- Campaign sizes: campaign CTAs need far more presence than the
         // registry default (h-8), and must clear a 44px touch target.
-        cta: "min-h-11 min-w-0 gap-2 rounded-none px-s5 whitespace-normal",
-        "cta-lg": "min-h-12 min-w-0 gap-2 rounded-none px-s6 whitespace-normal",
+        cta: "t-button min-h-11 min-w-0 gap-2 rounded-none px-s5 whitespace-normal",
+        "cta-lg":
+          "t-button-lg min-h-12 min-w-0 gap-2 rounded-none px-s6 whitespace-normal",
       },
     },
     defaultVariants: {

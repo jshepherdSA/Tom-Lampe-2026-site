@@ -196,6 +196,26 @@
     line-height: var(--lh-small);
   }
 
+  /* brand-guidelines 2.1: buttons are Archivo 600. A role class, not a
+     `text-*` utility — `text-<size>` and `text-<colour>` collide in
+     tailwind-merge and the colour loses. */
+  .t-button,
+  .t-button-lg {
+    font-family: var(--button-font-family);
+    font-weight: var(--button-font-weight);
+    font-variant-numeric: tabular-nums lining-nums;
+    font-feature-settings:
+      "tnum" 1,
+      "lnum" 1;
+    overflow-wrap: normal;
+  }
+  .t-button {
+    font-size: var(--button-font-size);
+  }
+  .t-button-lg {
+    font-size: var(--button-font-size-lg);
+  }
+
   @media (min-width: 768px) {
     .t-display {
       font-size: var(--size-display);
@@ -248,12 +268,47 @@
   /* --- The Ledger Rule — brand-guidelines.md §6 -------------------------- */
   /* Vertical divider at >=1024px; rotates to horizontal below. Geometry only;
      colour and metrics come from tokens. */
+  /* The sheet: bounded top and bottom so the rows read as one table rather
+     than as loose items. */
+  .ledger-sheet {
+    /* fit-content so the bounding rules stop at the evidence column instead
+       of running on across empty space */
+    width: fit-content;
+    max-width: 100%;
+    border-top: var(--ledger-rule-width) solid var(--ledger-rule-color);
+    border-bottom: var(--ledger-rule-width) solid var(--ledger-rule-color);
+  }
+
+  /* The figure uses its own token, not the page stat size: it must hold one
+     line inside the evidence cell or the column stops aligning. */
+  .t-ledger-figure {
+    font-family: var(--font-display);
+    font-size: var(--ledger-figure-size);
+    line-height: var(--lh-stat);
+    letter-spacing: var(--ls-stat);
+    font-weight: var(--weight-extrabold);
+    font-variant-numeric: tabular-nums lining-nums;
+    font-feature-settings:
+      "tnum" 1,
+      "lnum" 1;
+    overflow-wrap: normal;
+  }
+
   .ledger-row {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-3);
     padding-block: var(--space-4);
     border-bottom: var(--bw-hairline) solid var(--ledger-row-divider);
+  }
+  .ledger-sheet > .ledger-row:last-child {
+    border-bottom: 0;
+  }
+
+  /* On an inverse band the light hairline reads as a bright stripe; the
+     ledger tone is the correct weight there (4.16:1 on Indigo 900). */
+  .ledger-row[data-tone="dark"] {
+    border-bottom-color: var(--color-rule-ledger);
   }
   .ledger-evidence {
     order: -1;
@@ -274,6 +329,12 @@
       padding-right: var(--ledger-gutter);
       padding-block: var(--space-4);
       border-bottom: var(--bw-hairline) solid var(--ledger-row-divider);
+    }
+    .ledger-row[data-tone="dark"] .ledger-claim {
+      border-bottom-color: var(--color-rule-ledger);
+    }
+    .ledger-sheet > .ledger-row:last-child .ledger-claim {
+      border-bottom: 0;
     }
     .ledger-evidence {
       order: 0;

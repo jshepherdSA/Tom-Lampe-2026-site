@@ -55,6 +55,9 @@
   --size-label: 13px;
   --size-small: 13px;
   --size-legal: 14px;
+  --size-button: 15px;
+  --size-button-lg: 17px;
+  --size-ledger-figure: 30px;
 
   --lh-display: 1.02;
   --lh-h1: 1.08;
@@ -88,7 +91,7 @@
   /* size */
   --measure-body: 68ch;
   --container: 1200px;
-  --evidence-cell: 14rem;
+  --evidence-cell: 16rem;
   --logo-min-width: 150px;
   --target-min: 44px;
 
@@ -134,6 +137,11 @@
   --button-donate-bg: var(--color-accent-fill);
   --button-donate-text: var(--white);
   --button-secondary-border: var(--color-bg-inverse);
+  /* brand-guidelines 2.1: buttons are Archivo 600, not the body serif */
+  --button-font-family: var(--font-display);
+  --button-font-weight: var(--weight-semibold);
+  --button-font-size: var(--size-button);
+  --button-font-size-lg: var(--size-button-lg);
   --button-radius: var(--radius-base);
   --button-min-height: var(--target-min);
 
@@ -142,7 +150,7 @@
   --ledger-rule-color: var(--color-rule-ledger);
   --ledger-rule-width: var(--bw-hairline);
   --ledger-row-divider: var(--color-rule-hairline);
-  --ledger-figure-size: var(--size-stat);
+  --ledger-figure-size: var(--size-ledger-figure);
 
   --focus-width: var(--bw-focus);
   --focus-offset: var(--bw-emphasis);

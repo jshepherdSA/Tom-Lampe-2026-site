@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Reveal } from "@/components/reveal";
 import { cn } from "@/lib/utils";
 import type { LedgerEntry } from "@/content/copy";
 
@@ -20,25 +21,33 @@ import type { LedgerEntry } from "@/content/copy";
  * - A `sourceHref` turns the label into a link; the rule is what signals
  *   "this has a receipt".
  *
- * Geometry lives in `.ledger-row` / `.ledger-claim` / `.ledger-evidence`
- * (app/globals.css) so no measurement is hardcoded in this file.
+ * Geometry lives in `.ledger-*` (app/globals.css) so no measurement is
+ * hardcoded in this file.
  */
 
 export function LedgerRow({
   entry,
   tone = "light",
+  delay = 0,
   className,
 }: {
   entry: LedgerEntry;
   /** `dark` = sitting on an inverse band. */
   tone?: "light" | "dark";
+  /** Stagger offset, so a sheet reveals row by row rather than as a block. */
+  delay?: number;
   className?: string;
 }) {
   const { claim, figure, label, sourceHref } = entry;
   const hasFigure = figure.trim().length > 0;
 
   return (
-    <li className={cn("ledger-row", className)}>
+    <Reveal
+      as="li"
+      delay={delay}
+      className={cn("ledger-row", className)}
+      data-tone={tone}
+    >
       <div
         className={cn(
           "ledger-claim measure",
@@ -52,15 +61,15 @@ export function LedgerRow({
         {hasFigure ? (
           <p
             className={cn(
-              "t-stat",
+              "t-ledger-figure",
               tone === "dark" ? "text-marker" : "text-heading",
             )}
           >
             {figure}
           </p>
         ) : (
-          /* Empty-evidence case: no figure, rule still drawn by .ledger-evidence.
-             Marked for assistive tech so the absence is not silent. */
+          /* Empty-evidence case: no figure, rule still drawn by
+             .ledger-evidence. Marked so the absence is not silent. */
           <p
             className={cn(
               "t-small",
@@ -93,7 +102,7 @@ export function LedgerRow({
           </p>
         )}
       </div>
-    </li>
+    </Reveal>
   );
 }
 
@@ -109,9 +118,17 @@ export function LedgerList({
   "aria-label"?: string;
 }) {
   return (
-    <ul className={cn("list-none", className)} aria-label={ariaLabel}>
+    <ul
+      className={cn("ledger-sheet list-none", className)}
+      aria-label={ariaLabel}
+    >
       {entries.map((entry, i) => (
-        <LedgerRow key={`${entry.label}-${i}`} entry={entry} tone={tone} />
+        <LedgerRow
+          key={`${entry.label}-${i}`}
+          entry={entry}
+          tone={tone}
+          delay={i * 70}
+        />
       ))}
     </ul>
   );

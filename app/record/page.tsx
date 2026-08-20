@@ -60,7 +60,7 @@ export default function RecordPage() {
                   href={`#${t.slug}`}
                   className="t-small flex min-h-11 items-center border border-hairline bg-surface px-s3 font-semibold text-heading transition-colors hover:border-inverse"
                 >
-                  {t.heading}
+                  {t.navLabel ?? t.heading}
                 </a>
               </li>
             ))}

@@ -15,5 +15,8 @@ export const LEDGER_ROTATE_BP =
 /** Hero photo occupies the right 44% of the section at and above the breakpoint. */
 export const HERO_IMAGE_SIZES = `(min-width: ${LEDGER_ROTATE_BP}) 44vw, 100vw`;
 
+/** A photo occupying roughly half the section at and above the breakpoint. */
+export const HALF_IMAGE_SIZES = `(min-width: ${LEDGER_ROTATE_BP}) 46vw, 100vw`;
+
 /** Browser chrome colour. `<meta>` cannot take a CSS custom property. */
 export const THEME_COLOR = tokens.primitive.color["lampe-indigo"].$value;

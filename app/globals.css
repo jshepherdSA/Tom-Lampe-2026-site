@@ -1,26 +1,304 @@
 @import "tailwindcss";
+@import "shadcn/tailwind.css";
+@import "../assets/design-tokens.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ---------------------------------------------------------------------------
+   Tailwind utility surface. Every utility resolves to a token defined in
+   assets/design-tokens.css — components must never carry raw values.
+   `inline` keeps the var() reference in the emitted CSS.
+   ------------------------------------------------------------------------ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-page: var(--color-bg-page);
+  --color-band: var(--color-bg-band);
+  --color-surface: var(--color-bg-surface);
+  --color-inverse: var(--color-bg-inverse);
+  --color-inverse-deep: var(--color-bg-inverse-deep);
+
+  --color-body: var(--color-text-body);
+  --color-heading: var(--color-text-heading);
+  --color-ink-muted: var(--color-text-muted);
+  --color-link: var(--color-text-link);
+  --color-on-inverse: var(--color-text-on-inverse);
+  --color-muted-on-inverse: var(--color-text-muted-on-inverse);
+
+  --color-rule: var(--color-rule-ledger);
+  --color-hairline: var(--color-rule-hairline);
+  --color-marker: var(--color-accent-marker);
+  --color-signal-deep: var(--color-accent-fill);
+  --color-on-signal: var(--white);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+
+  --radius-base: var(--radius-base);
+
+  --spacing-s1: var(--space-1);
+  --spacing-s2: var(--space-2);
+  --spacing-s3: var(--space-3);
+  --spacing-s4: var(--space-4);
+  --spacing-s5: var(--space-5);
+  --spacing-s6: var(--space-6);
+  --spacing-s7: var(--space-7);
+  --spacing-s8: var(--space-8);
+  --spacing-s9: var(--space-9);
+  --spacing-s10: var(--space-10);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* shadcn semantic bridge — registry components inherit the brand automatically */
+:root {
+  --background: var(--color-bg-page);
+  --foreground: var(--color-text-body);
+  --card: var(--color-bg-surface);
+  --card-foreground: var(--color-text-body);
+  --popover: var(--color-bg-surface);
+  --popover-foreground: var(--color-text-body);
+  --primary: var(--color-bg-inverse);
+  --primary-foreground: var(--white);
+  --secondary: var(--color-bg-band);
+  --secondary-foreground: var(--color-text-heading);
+  --muted: var(--color-bg-band);
+  --muted-foreground: var(--color-text-muted);
+  --accent: var(--color-bg-band);
+  --accent-foreground: var(--color-text-heading);
+  --destructive: var(--color-accent-fill);
+  --border: var(--color-rule-hairline);
+  --input: var(--color-rule-hairline);
+  --ring: var(--color-focus-ring);
+  --radius: var(--radius-base);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-rule-hairline);
+  }
+
+  html {
+    font-family: var(--font-body);
+    scroll-behavior: smooth;
+    color-scheme: light;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    /* A single unbreakable token — a {{PLACEHOLDER}} now, a long URL later —
+       must never widen the page. */
+    /* `anywhere`, not `break-word`: only `anywhere` lets an unbreakable
+       token shrink a flex/grid item's min-content size, which is what
+       actually prevents the page widening. */
+    overflow-wrap: anywhere;
+    background: var(--color-bg-page);
+    color: var(--color-text-body);
+    font-family: var(--font-body);
+    font-size: var(--size-body);
+    line-height: var(--lh-body);
+    -webkit-font-smoothing: antialiased;
+    touch-action: manipulation;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+    font-family: var(--font-display);
+    color: var(--color-text-heading);
+    font-variant-numeric: tabular-nums lining-nums;
+    font-feature-settings:
+      "tnum" 1,
+      "lnum" 1;
+  }
+
+  ::selection {
+    background: var(--color-bg-inverse);
+    color: var(--white);
+  }
+
+  :focus-visible {
+    outline: var(--focus-width) solid var(--focus-color);
+    outline-offset: var(--focus-offset);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer components {
+  .t-display,
+  .t-h1,
+  .t-h2,
+  .t-h3,
+  .t-stat,
+  .t-label,
+  .t-small,
+  .t-legal {
+    font-family: var(--font-display);
+    font-variant-numeric: tabular-nums lining-nums;
+    font-feature-settings:
+      "tnum" 1,
+      "lnum" 1;
+  }
+
+  .t-display {
+    font-size: var(--size-display-m);
+    line-height: var(--lh-display);
+    letter-spacing: var(--ls-display);
+    font-weight: var(--weight-extrabold);
+  }
+  .t-h1 {
+    font-size: var(--size-h1-m);
+    line-height: var(--lh-h1);
+    letter-spacing: var(--ls-h1);
+    font-weight: var(--weight-extrabold);
+  }
+  .t-h2 {
+    font-size: var(--size-h2-m);
+    line-height: var(--lh-h2);
+    letter-spacing: var(--ls-h2);
+    font-weight: var(--weight-bold);
+  }
+  .t-h3 {
+    font-size: var(--size-h3-m);
+    line-height: var(--lh-h3);
+    font-weight: var(--weight-bold);
+  }
+  .t-stat {
+    font-size: var(--size-stat-m);
+    line-height: var(--lh-stat);
+    letter-spacing: var(--ls-stat);
+    font-weight: var(--weight-extrabold);
+  }
+  .t-lead {
+    font-size: var(--size-lead-m);
+    line-height: var(--lh-lead);
+  }
+  .t-label {
+    font-size: var(--size-label);
+    line-height: var(--lh-label);
+    letter-spacing: var(--ls-label);
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+  }
+  .t-small {
+    font-size: var(--size-small);
+    line-height: var(--lh-small);
+  }
+  .t-legal {
+    font-size: var(--legal-min-size);
+    line-height: var(--lh-small);
+  }
+
+  @media (min-width: 768px) {
+    .t-display {
+      font-size: var(--size-display);
+    }
+    .t-h1 {
+      font-size: var(--size-h1);
+    }
+    .t-h2 {
+      font-size: var(--size-h2);
+    }
+    .t-h3 {
+      font-size: var(--size-h3);
+    }
+    .t-stat {
+      font-size: var(--size-stat);
+    }
+    .t-lead {
+      font-size: var(--size-lead);
+    }
+  }
+
+  .container-page {
+    width: 100%;
+    max-width: var(--container);
+    margin-inline: auto;
+    /* full-bleed bands sit edge to edge; keep content clear of notches */
+    padding-inline: max(var(--space-5), env(safe-area-inset-left));
+  }
+  @media (min-width: 768px) {
+    .container-page {
+      padding-inline: var(--space-6);
+    }
+  }
+
+  .measure {
+    max-width: var(--measure-body);
+  }
+
+  .section-y {
+    padding-block: var(--space-7);
+  }
+  @media (min-width: 768px) {
+    .section-y {
+      padding-block: var(--space-9);
+    }
+  }
+}
+
+@layer utilities {
+  /* --- The Ledger Rule — brand-guidelines.md §6 -------------------------- */
+  /* Vertical divider at >=1024px; rotates to horizontal below. Geometry only;
+     colour and metrics come from tokens. */
+  .ledger-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    padding-block: var(--space-4);
+    border-bottom: var(--bw-hairline) solid var(--ledger-row-divider);
+  }
+  .ledger-evidence {
+    order: -1;
+    padding-top: var(--space-3);
+    border-top: var(--ledger-rule-width) solid var(--ledger-rule-color);
+  }
+  @media (min-width: 1024px) {
+    .ledger-row {
+      grid-template-columns: minmax(0, var(--measure-body)) var(
+          --ledger-evidence-width
+        );
+      justify-content: start;
+      gap: 0;
+      padding-block: 0;
+      border-bottom: 0;
+    }
+    .ledger-claim {
+      padding-right: var(--ledger-gutter);
+      padding-block: var(--space-4);
+      border-bottom: var(--bw-hairline) solid var(--ledger-row-divider);
+    }
+    .ledger-evidence {
+      order: 0;
+      padding-top: var(--space-4);
+      padding-bottom: var(--space-4);
+      padding-left: var(--ledger-gutter);
+      border-top: 0;
+      border-left: var(--ledger-rule-width) solid var(--ledger-rule-color);
+    }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(var(--space-2));
+    transition:
+      opacity var(--duration-base) var(--easing-standard),
+      transform var(--duration-base) var(--easing-standard);
+  }
+  .reveal[data-shown="true"] {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      transform: none;
+    }
+  }
 }

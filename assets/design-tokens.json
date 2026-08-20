@@ -1,0 +1,307 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "brand": "Tom Lampe for County Commissioner",
+  "version": "1.0.0",
+  "source": "docs/brand-guidelines.md v1.0 (approved 2026-08-19)",
+  "note": "Hand-authored. Do NOT regenerate with sync-brand-to-tokens.cjs: its brightness math replaces contrast-tuned tones and it injects a vendor brand-name prefix.",
+
+  "primitive": {
+    "color": {
+      "lampe-indigo": {
+        "$value": "#292F70",
+        "$type": "color",
+        "origin": "measured: logo wordmark, 66.7% of opaque px"
+      },
+      "indigo-900": {
+        "$value": "#1B1F4B",
+        "$type": "color",
+        "origin": "tonal step of lampe-indigo"
+      },
+      "canton": {
+        "$value": "#384F9B",
+        "$type": "color",
+        "origin": "measured: logo flag canton, 1.0% of opaque px"
+      },
+      "indigo-200": {
+        "$value": "#AEB6E4",
+        "$type": "color",
+        "origin": "tonal step of lampe-indigo"
+      },
+      "signal-red": {
+        "$value": "#EB1C24",
+        "$type": "color",
+        "origin": "measured: logo stripe + sub-line, 6.6% of opaque px"
+      },
+      "signal-red-deep": {
+        "$value": "#C2151C",
+        "$type": "color",
+        "origin": "signal-red darkened to carry white text at 6.14:1"
+      },
+      "paper": { "$value": "#F7F7FA", "$type": "color" },
+      "mist": { "$value": "#ECEDF3", "$type": "color" },
+      "white": { "$value": "#FFFFFF", "$type": "color" },
+      "ledger": {
+        "$value": "#7E82A0",
+        "$type": "color",
+        "origin": "only rule tone clearing 3:1 on all four approved grounds"
+      },
+      "border": { "$value": "#DDDEE8", "$type": "color" },
+      "ink": { "$value": "#16172E", "$type": "color" },
+      "muted": { "$value": "#55586F", "$type": "color" }
+    },
+    "font-family": {
+      "display": {
+        "$value": "Archivo, ui-sans-serif, system-ui, sans-serif",
+        "$type": "fontFamily"
+      },
+      "body": {
+        "$value": "'Source Serif 4', Georgia, serif",
+        "$type": "fontFamily"
+      }
+    },
+    "font-weight": {
+      "regular": { "$value": 400, "$type": "fontWeight" },
+      "semibold": { "$value": 600, "$type": "fontWeight" },
+      "bold": { "$value": 700, "$type": "fontWeight" },
+      "extrabold": { "$value": 800, "$type": "fontWeight" }
+    },
+    "font-size": {
+      "display-desktop": { "$value": "56px", "$type": "dimension" },
+      "display-mobile": { "$value": "34px", "$type": "dimension" },
+      "h1-desktop": { "$value": "44px", "$type": "dimension" },
+      "h1-mobile": { "$value": "30px", "$type": "dimension" },
+      "h2-desktop": { "$value": "34px", "$type": "dimension" },
+      "h2-mobile": { "$value": "26px", "$type": "dimension" },
+      "h3-desktop": { "$value": "22px", "$type": "dimension" },
+      "h3-mobile": { "$value": "20px", "$type": "dimension" },
+      "stat-desktop": { "$value": "36px", "$type": "dimension" },
+      "stat-mobile": { "$value": "28px", "$type": "dimension" },
+      "lead-desktop": { "$value": "19px", "$type": "dimension" },
+      "lead-mobile": { "$value": "17px", "$type": "dimension" },
+      "body": { "$value": "17px", "$type": "dimension" },
+      "label": { "$value": "13px", "$type": "dimension" },
+      "small": { "$value": "13px", "$type": "dimension" },
+      "legal": {
+        "$value": "14px",
+        "$type": "dimension",
+        "origin": "KRS 121.190 clear-and-conspicuous floor"
+      }
+    },
+    "line-height": {
+      "display": { "$value": "1.02", "$type": "number" },
+      "h1": { "$value": "1.08", "$type": "number" },
+      "h2": { "$value": "1.12", "$type": "number" },
+      "h3": { "$value": "1.25", "$type": "number" },
+      "stat": { "$value": "1", "$type": "number" },
+      "lead": { "$value": "1.6", "$type": "number" },
+      "body": { "$value": "1.62", "$type": "number" },
+      "label": { "$value": "1.2", "$type": "number" },
+      "small": { "$value": "1.5", "$type": "number" }
+    },
+    "letter-spacing": {
+      "display": { "$value": "-0.02em", "$type": "dimension" },
+      "h1": { "$value": "-0.02em", "$type": "dimension" },
+      "h2": { "$value": "-0.01em", "$type": "dimension" },
+      "stat": { "$value": "-0.01em", "$type": "dimension" },
+      "normal": { "$value": "0", "$type": "dimension" },
+      "label": { "$value": "0.12em", "$type": "dimension" }
+    },
+    "space": {
+      "1": { "$value": "4px", "$type": "dimension" },
+      "2": { "$value": "8px", "$type": "dimension" },
+      "3": { "$value": "12px", "$type": "dimension" },
+      "4": { "$value": "16px", "$type": "dimension" },
+      "5": { "$value": "24px", "$type": "dimension" },
+      "6": { "$value": "32px", "$type": "dimension" },
+      "7": { "$value": "48px", "$type": "dimension" },
+      "8": { "$value": "64px", "$type": "dimension" },
+      "9": { "$value": "80px", "$type": "dimension" },
+      "10": { "$value": "96px", "$type": "dimension" }
+    },
+    "size": {
+      "measure-body": { "$value": "68ch", "$type": "dimension" },
+      "container": { "$value": "1200px", "$type": "dimension" },
+      "evidence-cell": { "$value": "14rem", "$type": "dimension" },
+      "logo-min-width": { "$value": "150px", "$type": "dimension" },
+      "target-min": { "$value": "44px", "$type": "dimension" }
+    },
+    "radius": {
+      "none": { "$value": "0", "$type": "dimension" },
+      "base": { "$value": "4px", "$type": "dimension" }
+    },
+    "border-width": {
+      "hairline": { "$value": "1px", "$type": "dimension" },
+      "emphasis": { "$value": "2px", "$type": "dimension" },
+      "focus": { "$value": "3px", "$type": "dimension" }
+    },
+    "duration": {
+      "fast": { "$value": "150ms", "$type": "duration" },
+      "base": { "$value": "300ms", "$type": "duration" }
+    },
+    "easing": {
+      "standard": {
+        "$value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "$type": "cubicBezier"
+      }
+    },
+    "breakpoint": {
+      "ledger-rotate": {
+        "$value": "1024px",
+        "$type": "dimension",
+        "origin": "brand-guidelines 6.2: below this the ledger rule rotates to horizontal"
+      }
+    }
+  },
+
+  "semantic": {
+    "color": {
+      "bg-page": { "$value": "{primitive.color.paper}", "$type": "color" },
+      "bg-band": { "$value": "{primitive.color.mist}", "$type": "color" },
+      "bg-surface": { "$value": "{primitive.color.white}", "$type": "color" },
+      "bg-inverse": {
+        "$value": "{primitive.color.lampe-indigo}",
+        "$type": "color"
+      },
+      "bg-inverse-deep": {
+        "$value": "{primitive.color.indigo-900}",
+        "$type": "color"
+      },
+      "text-body": {
+        "$value": "{primitive.color.ink}",
+        "$type": "color",
+        "contrast": "16.42:1 on bg-page"
+      },
+      "text-heading": {
+        "$value": "{primitive.color.lampe-indigo}",
+        "$type": "color",
+        "contrast": "11.32:1 on bg-page"
+      },
+      "text-muted": {
+        "$value": "{primitive.color.muted}",
+        "$type": "color",
+        "contrast": "6.52:1 on bg-page"
+      },
+      "text-link": {
+        "$value": "{primitive.color.canton}",
+        "$type": "color",
+        "contrast": "7.12:1 on bg-page"
+      },
+      "text-on-inverse": {
+        "$value": "{primitive.color.paper}",
+        "$type": "color",
+        "contrast": "11.32:1 on bg-inverse"
+      },
+      "text-muted-on-inverse": {
+        "$value": "{primitive.color.indigo-200}",
+        "$type": "color",
+        "contrast": "6.12:1 on bg-inverse"
+      },
+      "rule-ledger": {
+        "$value": "{primitive.color.ledger}",
+        "$type": "color",
+        "contrast": "3.51 / 3.22 / 4.16 / 3.22 on paper / mist / indigo-900 / lampe-indigo"
+      },
+      "rule-hairline": {
+        "$value": "{primitive.color.border}",
+        "$type": "color",
+        "usage": "decorative only; never the ledger rule"
+      },
+      "accent-marker": {
+        "$value": "{primitive.color.signal-red}",
+        "$type": "color",
+        "usage": "non-text markers and display text >=24px only"
+      },
+      "accent-fill": {
+        "$value": "{primitive.color.signal-red-deep}",
+        "$type": "color",
+        "contrast": "6.14:1 under white text"
+      },
+      "focus-ring": { "$value": "{primitive.color.canton}", "$type": "color" }
+    }
+  },
+
+  "component": {
+    "button": {
+      "primary-bg": {
+        "$value": "{semantic.color.bg-inverse}",
+        "$type": "color"
+      },
+      "primary-text": {
+        "$value": "{primitive.color.white}",
+        "$type": "color",
+        "contrast": "12.10:1"
+      },
+      "donate-bg": {
+        "$value": "{semantic.color.accent-fill}",
+        "$type": "color"
+      },
+      "donate-text": {
+        "$value": "{primitive.color.white}",
+        "$type": "color",
+        "contrast": "6.14:1"
+      },
+      "secondary-border": {
+        "$value": "{semantic.color.bg-inverse}",
+        "$type": "color"
+      },
+      "radius": { "$value": "{primitive.radius.base}", "$type": "dimension" },
+      "min-height": {
+        "$value": "{primitive.size.target-min}",
+        "$type": "dimension"
+      }
+    },
+    "ledger": {
+      "evidence-width": {
+        "$value": "{primitive.size.evidence-cell}",
+        "$type": "dimension"
+      },
+      "gutter": { "$value": "{primitive.space.5}", "$type": "dimension" },
+      "rule-color": {
+        "$value": "{semantic.color.rule-ledger}",
+        "$type": "color"
+      },
+      "rule-width": {
+        "$value": "{primitive.border-width.hairline}",
+        "$type": "dimension"
+      },
+      "row-divider": {
+        "$value": "{semantic.color.rule-hairline}",
+        "$type": "color"
+      },
+      "figure-size": {
+        "$value": "{primitive.font-size.stat-desktop}",
+        "$type": "dimension"
+      },
+      "rotate-below": {
+        "$value": "{primitive.breakpoint.ledger-rotate}",
+        "$type": "dimension"
+      }
+    },
+    "focus": {
+      "width": {
+        "$value": "{primitive.border-width.focus}",
+        "$type": "dimension"
+      },
+      "offset": {
+        "$value": "{primitive.border-width.emphasis}",
+        "$type": "dimension"
+      },
+      "color": { "$value": "{semantic.color.focus-ring}", "$type": "color" }
+    },
+    "legal": {
+      "min-size": {
+        "$value": "{primitive.font-size.legal}",
+        "$type": "dimension",
+        "note": "KRS 121.190: never smaller, never reduced opacity"
+      }
+    }
+  },
+
+  "campaign": {
+    "tenure-start": {
+      "$value": "2014",
+      "$type": "string",
+      "confidence": "LOW - PRE-LAUNCH VERIFY. Single source of truth. Never render a computed years-in-office figure."
+    }
+  }
+}

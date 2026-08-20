@@ -14,15 +14,15 @@ npm run lint
 
 ## Where things live
 
-| Path | Purpose |
-|---|---|
-| `content/copy.ts` | **All site copy, single file.** Remaining `{{PLACEHOLDER}}` slots are unwritten. Nothing outside this file contains user-facing text. |
-| `assets/design-tokens.json` | Hand-authored tokens — primitive → semantic → component. Source of truth. |
-| `assets/design-tokens.css` | The same tokens as CSS custom properties. |
-| `app/globals.css` | Maps tokens onto Tailwind utilities and the Ledger Rule geometry. |
-| `components/ledger-rule.tsx` | The site's signature device (claim ↔ evidence ↔ provenance). |
-| `public/brand/` | Vector lockups: `logo-dark.svg` (light grounds), `logo-light.svg` (dark grounds). |
-| `fonts/` | Self-hosted variable woff2, latin subset. |
+| Path                         | Purpose                                                                                                                               |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `content/copy.ts`            | **All site copy, single file.** Remaining `{{PLACEHOLDER}}` slots are unwritten. Nothing outside this file contains user-facing text. |
+| `assets/design-tokens.json`  | Hand-authored tokens — primitive → semantic → component. Source of truth.                                                             |
+| `assets/design-tokens.css`   | The same tokens as CSS custom properties.                                                                                             |
+| `app/globals.css`            | Maps tokens onto Tailwind utilities and the Ledger Rule geometry.                                                                     |
+| `components/ledger-rule.tsx` | The site's signature device (claim ↔ evidence ↔ provenance).                                                                          |
+| `public/brand/`              | Vector lockups: `logo-dark.svg` (light grounds), `logo-light.svg` (dark grounds).                                                     |
+| `fonts/`                     | Self-hosted variable woff2, latin subset.                                                                                             |
 
 ## Rules this codebase enforces
 

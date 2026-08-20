@@ -23,9 +23,9 @@ export function DonateModule({ tone = "dark" }: { tone?: "dark" | "light" }) {
 
   const chip = (active: boolean) =>
     cn(
-      "t-stat flex min-h-11 min-w-0 items-center justify-center border-2 px-s3 py-s3 text-center transition-colors",
+      "t-h3 flex min-h-11 items-center justify-center border-2 px-s2 py-s3 whitespace-nowrap transition-colors",
       active
-        ? "border-accent bg-signal-deep text-on-signal"
+        ? "border-signal-deep bg-signal-deep text-on-signal"
         : tone === "dark"
           ? "border-rule text-on-inverse hover:border-marker"
           : "border-hairline bg-surface text-heading hover:border-inverse",
@@ -36,7 +36,7 @@ export function DonateModule({ tone = "dark" }: { tone?: "dark" | "light" }) {
       <div
         role="group"
         aria-label={D.heading}
-        className="grid grid-cols-3 gap-s2 lg:grid-cols-7"
+        className="grid grid-cols-3 gap-s2 sm:grid-cols-4 xl:grid-cols-7"
       >
         {D.levels.map((level) => (
           <button

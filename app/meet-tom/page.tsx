@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { LedgerList } from "@/components/ledger-rule";
+import { InfoDisplay } from "@/components/info-display";
 import { copy } from "@/content/copy";
 import { HALF_IMAGE_SIZES, HERO_IMAGE_SIZES } from "@/lib/tokens";
 
@@ -16,13 +16,13 @@ export const metadata: Metadata = {
 export default function MeetTomPage() {
   return (
     <>
-      {/* page header — copy left, the right half of the section is the photo */}
+      {/* page header: copy left, the right half of the section is the photo */}
       <section
         aria-labelledby="meet-h"
         className="relative flex flex-col overflow-hidden bg-inverse lg:flex-row lg:items-center"
       >
         <div className="container-page relative z-10 w-full shrink-0 py-s7">
-          <div className="lg:w-[52%] lg:pr-s6">
+          <div className="lg:w-[var(--hero-copy-width)] lg:pr-s6">
             <p className="t-label text-on-inverse">{M.hero.eyebrow}</p>
             <h1 id="meet-h" className="t-h1 mt-s3 text-on-inverse">
               {M.hero.heading}
@@ -33,14 +33,14 @@ export default function MeetTomPage() {
           </div>
         </div>
 
-        <div className="relative h-72 w-full overflow-hidden sm:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-[44%] lg:[clip-path:polygon(0_0,100%_0,100%_100%,14%_100%)]">
+        <div className="relative h-72 w-full overflow-hidden sm:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-[var(--hero-image-width)] lg:[clip-path:var(--hero-clip)]">
           <Image
-            src="/tom-lampe-headshot.webp"
+            src="/tom-lampe-family.webp"
             alt={M.hero.imageAlt}
             fill
             priority
             sizes={HERO_IMAGE_SIZES}
-            className="object-cover object-[52%_28%]"
+            className="object-cover object-[var(--pos-hero-meet)]"
           />
         </div>
       </section>
@@ -61,7 +61,9 @@ export default function MeetTomPage() {
         </div>
       </section>
 
-      {/* service — the Ledger Rule, credential against duration */}
+      {/* service: credentials as a marked list, durations as a stat column.
+          Three of the six entries carry no figure, so the stat column holds
+          only the quantified ones rather than printing empty tiles. */}
       <section aria-labelledby="service-h" className="bg-inverse-deep">
         <div className="container-page py-s8">
           <h2 id="service-h" className="t-h2 measure text-on-inverse">
@@ -70,7 +72,8 @@ export default function MeetTomPage() {
           <p className="measure mt-s3 text-muted-on-inverse">
             {M.service.lead}
           </p>
-          <LedgerList
+
+          <InfoDisplay
             entries={M.serviceEntries}
             tone="dark"
             className="mt-s6"
@@ -90,10 +93,10 @@ export default function MeetTomPage() {
             <p className="measure mt-s5 text-body">{M.roots.body}</p>
           </div>
           <Image
-            src="/tom-lampe-family.webp"
+            src="/tom-lampe-community.webp"
             alt={M.roots.imageAlt}
-            width={1264}
-            height={1055}
+            width={1800}
+            height={1313}
             sizes={HALF_IMAGE_SIZES}
             className="h-auto w-full border-b-4 border-rule"
           />

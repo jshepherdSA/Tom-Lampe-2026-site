@@ -29,7 +29,7 @@ export function Reveal({
     if (typeof IntersectionObserver === "undefined") {
       // Legacy fallback: reveal by writing the attribute directly rather than
       // through state. Nothing re-renders on this path, so the DOM write
-      // sticks — and it keeps the effect a pure external-system sync.
+      // sticks, and it keeps the effect a pure external-system sync.
       node.dataset.shown = "true";
       return;
     }

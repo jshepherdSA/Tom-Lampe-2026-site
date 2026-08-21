@@ -7,9 +7,9 @@ export function SiteFooter() {
   return (
     <footer className="bg-inverse-deep text-muted-on-inverse">
       <div className="container-page py-s8">
-        <div className="grid gap-s7 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr]">
+        <div className="grid gap-s7 md:grid-cols-2 lg:grid-cols-[var(--split-footer)]">
           <div>
-            <BrandMark tone="light" className="w-[190px]" />
+            <BrandMark tone="light" className="w-[var(--brand-mark-width-lg)]" />
             <p className="measure mt-s5 text-on-inverse">
               {copy.footer.tagline}
             </p>
@@ -44,7 +44,7 @@ export function SiteFooter() {
         <hr className="mt-s7 border-0 border-t border-rule" />
 
         <div className="mt-s5 flex flex-col gap-s4 md:flex-row md:items-center md:justify-between">
-          {/* KRS 121.190 — candidate committee: name only. Clear and
+          {/* KRS 121.190 candidate committee: name only. Clear and
               conspicuous: never below --size-legal, never reduced opacity. */}
           <p className="t-legal text-on-inverse">
             Paid for by <span translate="no">{copy.global.committeeName}</span>

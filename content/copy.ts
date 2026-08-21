@@ -43,7 +43,7 @@ export const copy = {
       "Tom Lampe is a lifelong Campbell County resident, local businessman and fiscal conservative. Lower tax rates every year since 2020, more than $2 million saved for taxpayers, and stronger emergency services.",
     ogTitle: "Proven Results. Taxpayer Accountability. Campbell County First.",
     ogDescription:
-      "Tom brings experience — but he measures that experience by results.",
+      "Tom brings experience, but he measures that experience by results.",
   },
 
   global: {
@@ -53,7 +53,7 @@ export const copy = {
     skipToContent: "Skip to main content",
     electionDayLabel: "Election Day",
     electionDate: "November 3, 2026",
-    /** PRE-LAUNCH VERIFY — low confidence. Single source of truth. */
+    /** PRE-LAUNCH VERIFY: low confidence. Single source of truth. */
     tenureStart: "2014",
     /** KRS 121.190. Name only. Never below 14px, never reduced opacity. */
     committeeName: "{{COMMITTEE_NAME}}",
@@ -64,7 +64,7 @@ export const copy = {
   nav: {
     ariaLabel: "Primary",
     mobileAriaLabel: "Mobile",
-    homeLabel: "Tom Lampe for Campbell County Commissioner — home",
+    homeLabel: "Tom Lampe for Campbell County Commissioner, home",
     menuOpen: "Open menu",
     menuClose: "Close menu",
     items: [
@@ -86,9 +86,13 @@ export const copy = {
   home: {
     hero: {
       eyebrow: "Campbell County Commissioner",
-      headline:
-        "Proven Results. Taxpayer Accountability. Campbell County First.",
-      lead: "Tom Lampe is a lifelong Campbell County resident, local businessman and fiscal conservative who believes government must earn the public’s trust. He brings experience — but he measures that experience by results.",
+      /** One phrase per line. Rendered as three <span className="block">. */
+      headlineLines: [
+        "Proven Results.",
+        "Taxpayer Accountability.",
+        "Campbell County First.",
+      ],
+      lead: "Tom Lampe is a lifelong Campbell County resident, local businessman and fiscal conservative who believes government must earn the public’s trust. He brings experience, but he measures that experience by results.",
       primaryCta: "Join the Team",
       secondaryCta: "Donate",
       imageAlt:
@@ -120,7 +124,7 @@ export const copy = {
         { amount: 500, note: "Underwrites a countywide literature drop." },
         { amount: 1000, note: "Backs a full week of voter contact." },
       ],
-      /** PRE-LAUNCH VERIFY — processor URL. */
+      /** PRE-LAUNCH VERIFY: processor URL. */
       processorUrl: "{{DONATE_PROCESSOR_URL}}",
     },
     proof: {
@@ -155,7 +159,7 @@ export const copy = {
     },
     explore: {
       heading: "A safer, more affordable and better-connected Campbell County.",
-      body: "Whether you live along the river, in a suburban neighborhood or on a rural road — from Newport and Bellevue to Fort Thomas and Alexandria, and throughout rural southern Campbell County.",
+      body: "Whether you live along the river, in a suburban neighborhood or on a rural road: from Newport and Bellevue to Fort Thomas and Alexandria, and throughout rural southern Campbell County.",
       linkLabel: "Read more",
       items: [
         {
@@ -171,7 +175,7 @@ export const copy = {
         {
           href: "/communities",
           title: "Your Community",
-          body: "What Tom’s record means where you live — from the river cities to the rural south.",
+          body: "What Tom’s record means where you live, from the river cities to the rural south.",
         },
       ],
     },
@@ -182,20 +186,21 @@ export const copy = {
     meta: {
       title: "Meet Tom",
       description:
-        "Tom Lampe is a lifelong Campbell County resident, local businessman and fiscal conservative — six terms on Fort Thomas City Council, more than 30 years in the private sector, and a record of results on the Fiscal Court.",
+        "Tom Lampe is a lifelong Campbell County resident, local businessman and fiscal conservative: six terms on Fort Thomas City Council, more than 30 years in the private sector, and a record of results on the Fiscal Court.",
     },
     hero: {
       eyebrow: "Meet Tom",
       heading: "A lifelong neighbor who measures experience by results.",
       lead: "Tom Lampe is a lifelong Campbell County resident, local businessman and fiscal conservative who believes government must earn the public’s trust.",
-      imageAlt: "Portrait of Tom Lampe.",
+      imageAlt:
+        "Tom Lampe at home with his wife and their three sons.",
     },
     /** Long-form biography. Each paragraph traces to the messaging documents. */
     bio: {
       heading: "Thirty years reading budgets before he ever voted on one.",
       paragraphs: [
         "Before public office, Tom spent more than 30 years in the private sector, where evaluating budgets and reading financial statements was the job. That is the lens he brought to the Fiscal Court, and it is why he treats a county budget as somebody else’s money rather than the county’s.",
-        "He has governed as a taxpayer hawk — cutting tax rates, eliminating unnecessary fees, demanding more efficient services, and protecting the essential investments that keep Campbell County safe, strong and growing. He believes government should take no more from taxpayers than it needs, and that families and businesses should keep more of what they earn.",
+        "He has governed as a taxpayer hawk: cutting tax rates, eliminating unnecessary fees, demanding more efficient services, and protecting the essential investments that keep Campbell County safe, strong and growing. He believes government should take no more from taxpayers than it needs, and that families and businesses should keep more of what they earn.",
         "That approach shows up in how problems get solved. When the county needed modern emergency communications, he worked with Kenton and Boone Counties rather than building something alone. When rural families needed water and internet, he backed partnerships that brought federal, state and private dollars in rather than standing up a new county utility.",
       ],
     },
@@ -203,7 +208,7 @@ export const copy = {
       heading: "Service",
       lead: "Elected office, board service and the work that came before it.",
     },
-    /** figure "" renders the empty-evidence case — the rule still draws. */
+    /** figure "" renders the empty-evidence case: the rule still draws. */
     serviceEntries: [
       {
         claim: "Campbell County Commissioner, serving on the Fiscal Court.",
@@ -243,8 +248,9 @@ export const copy = {
     roots: {
       eyebrow: "Home",
       heading: "Campbell County, all of it.",
-      body: "Tom is a lifelong resident of Campbell County and an active member and volunteer at St. Catherine of Siena Parish in Fort Thomas. From Newport and Bellevue to Fort Thomas and Alexandria — and throughout rural southern Campbell County — he has worked to make sure every community benefits from the county’s progress.",
-      imageAlt: "Tom Lampe with his family.",
+      body: "Tom is a lifelong resident of Campbell County and an active member and volunteer at St. Catherine of Siena Parish in Fort Thomas. From Newport and Bellevue to Fort Thomas and Alexandria, and throughout rural southern Campbell County, he has worked to make sure every community benefits from the county’s progress.",
+      imageAlt:
+        "Tom Lampe with neighbors, parents and children in Tom Lampe T-shirts beside a “Keep Tom Lampe” sign at a Campbell County parade.",
     },
     close: {
       heading: "See what that adds up to.",
@@ -264,16 +270,16 @@ export const copy = {
     hero: {
       eyebrow: "The Record",
       heading: "Experience, measured by results.",
-      lead: "Tom Lampe has governed as a taxpayer hawk — cutting tax rates, eliminating unnecessary fees, demanding more efficient services and protecting the essential investments that keep Campbell County safe, strong and growing. Here is the record, theme by theme.",
+      lead: "Tom Lampe has governed as a taxpayer hawk: cutting tax rates, eliminating unnecessary fees, demanding more efficient services and protecting the essential investments that keep Campbell County safe, strong and growing. Here is the record, theme by theme.",
       imageAlt:
-        "Tom Lampe in the Campbell County Fiscal Court chambers, before the county seal and the American and Kentucky flags.",
+        "Tom Lampe in a charcoal suit and patterned tie, photographed in 2026.",
     },
     jumpNavHeading: "On this page",
     themeEyebrow: "A vote for Tom means",
     verify: {
       heading: "Check it yourself",
       body: "Campbell County publishes agendas, minutes, ordinances, budgets, audits and commissioners’ voting records online. Every claim on this page can be checked against the county’s own published record.",
-      /** PRE-LAUNCH VERIFY — county records URL. */
+      /** PRE-LAUNCH VERIFY: county records URL. */
       href: "{{RECORD_VERIFY_URL}}",
     },
     close: {
@@ -289,7 +295,7 @@ export const copy = {
         heading: "Respect for the Taxpayers of Campbell County",
         promise: "Lower taxes. Efficient government. Responsible investment.",
         intro:
-          "Tom believes the government should take no more from taxpayers than it needs — and families and businesses should keep more of what they earn.",
+          "Tom believes the government should take no more from taxpayers than it needs, and that families and businesses should keep more of what they earn.",
         entries: [
           {
             claim:
@@ -458,13 +464,13 @@ export const copy = {
         navLabel: "Roads & Bridges",
         heading: "Safe Roads. Connected Communities. Shared Prosperity.",
         promise:
-          "Dependable roads and bridges — paid for with outside dollars where possible.",
+          "Dependable roads and bridges, paid for with outside dollars where possible.",
         intro:
           "Tom has worked to deliver safer roads, dependable bridges and responsible infrastructure investment throughout Campbell County, bringing state transportation dollars home so local taxpayers do not carry the entire cost.",
         entries: [
           {
             claim:
-              "Resurfacing county roads every year — the stuff people notice on every commute.",
+              "Resurfacing county roads every year, the stuff people notice on every commute.",
             figure: "10 miles",
             label: "Resurfaced annually",
           },
@@ -507,7 +513,7 @@ export const copy = {
         promise:
           "Clean water, reliable internet and real services in every ZIP code.",
         intro:
-          "From Newport and Bellevue to Fort Thomas and Alexandria — and throughout rural southern Campbell County — clean water, reliable internet, responsive public safety and essential services should reach everyone.",
+          "From Newport and Bellevue to Fort Thomas and Alexandria, and throughout rural southern Campbell County, clean water, reliable internet, responsive public safety and essential services should reach everyone.",
         entries: [
           {
             claim:
@@ -553,7 +559,7 @@ export const copy = {
         promise:
           "More ways to rent, own or stay in the community you already love.",
         intro:
-          "It will not fix the regional housing shortage overnight, but it is the groundwork for more affordable options — without a larger county bureaucracy.",
+          "It will not fix the regional housing shortage overnight, but it is the groundwork for more affordable options, without a larger county bureaucracy.",
         entries: [
           {
             claim:
@@ -594,11 +600,11 @@ export const copy = {
         promise:
           "More ways to walk, bike, play and enjoy the county you live in.",
         intro:
-          "Tom is protecting Campbell County’s parks while creating more ways for residents to get outdoors — from A.J. Jolly Park to Riverfront Commons.",
+          "Tom is protecting Campbell County’s parks while creating more ways for residents to get outdoors, from A.J. Jolly Park to Riverfront Commons.",
         entries: [
           {
             claim:
-              "Invested in A.J. Jolly Park, including the spillway and lake dredging — safety work, not cosmetic spending.",
+              "Invested in A.J. Jolly Park, including the spillway and lake dredging: safety work, not cosmetic spending.",
             figure: "$10M",
             label: "A.J. Jolly investment",
           },
@@ -674,7 +680,7 @@ export const copy = {
         promise:
           "A county government you can see, understand and hold accountable.",
         intro:
-          "A vote for Tom means a county government you can examine — including his own record.",
+          "A vote for Tom means a county government you can examine, including his own record.",
         entries: [
           {
             claim:
@@ -745,7 +751,7 @@ export const copy = {
     },
     success: {
       heading: "You’re on the team.",
-      body: "Thanks for signing up. Watch your inbox — the campaign will be in touch about yard signs, events and ways to help between now and Election Day.",
+      body: "Thanks for signing up. Watch your inbox. The campaign will be in touch about yard signs, events and ways to help between now and Election Day.",
     },
     validation: {
       required: "Please fill this in.",
@@ -764,7 +770,7 @@ export const copy = {
   /* ---------------------------------------------------------------- footer */
   footer: {
     tagline:
-      "Proven results, taxpayer accountability and Campbell County first — in every community, from the river to the county line.",
+      "Proven results, taxpayer accountability and Campbell County first. In every community, from the river to the county line.",
     columns: [
       {
         heading: "Campaign",

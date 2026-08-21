@@ -4,20 +4,20 @@ import { cn } from "@/lib/utils";
 import type { LedgerEntry } from "@/content/copy";
 
 /**
- * The Ledger Rule — the site's single signature device.
+ * The Ledger Rule: the site's single signature device.
  * Spec: docs/brand-guidelines.md §6.
  *
  * A claim cell and a fixed-width evidence cell divided by a 1px rule in
  * `--ledger-rule-color`. The evidence cell does not flex, so figures align
- * down the page — that is the whole point of the device.
+ * down the page; that is the whole point of the device.
  *
  * Behaviours required by the spec and implemented here:
  * - >=1024px: rule is vertical, full row height; row divider is inset to the
  *   claim cell so the figure column reads as continuous.
  * - <1024px:  the rule rotates to horizontal, the evidence cell moves above
  *   the claim (CSS `order`), and the figure sets flush left.
- * - Empty figure: the rule still draws. An empty evidence cell is information
- *   — it says this claim is not quantified.
+ * - Empty figure: the rule still draws. An empty evidence cell is information:
+ *   it says this claim is not quantified.
  * - A `sourceHref` turns the label into a link; the rule is what signals
  *   "this has a receipt".
  *
@@ -77,7 +77,7 @@ export function LedgerRow({
             )}
             data-empty-evidence="true"
           >
-            &mdash;
+            &ndash;
           </p>
         )}
 

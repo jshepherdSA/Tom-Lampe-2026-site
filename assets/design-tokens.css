@@ -41,6 +41,7 @@
 
   --size-display: 56px;
   --size-display-m: 34px;
+  --size-display-min: 25px;
   --size-h1: 44px;
   --size-h1-m: 30px;
   --size-h2: 34px;
@@ -57,7 +58,13 @@
   --size-legal: 14px;
   --size-button: 15px;
   --size-button-lg: 17px;
+  --size-nav: 16px;
+  --size-banner: 16px;
   --size-ledger-figure: 30px;
+  --size-bullet: 9px;
+  --size-tile-figure-min: 28px;
+  --size-tile-figure-max: 88px;
+  --size-tile-label: 16px;
 
   --lh-display: 1.02;
   --lh-h1: 1.08;
@@ -65,6 +72,7 @@
   --lh-h3: 1.25;
   --lh-stat: 1;
   --lh-lead: 1.6;
+  --lh-lead-tight: 1.32;
   --lh-body: 1.62;
   --lh-label: 1.2;
   --lh-small: 1.5;
@@ -135,6 +143,65 @@
   --button-primary-bg: var(--color-bg-inverse);
   --button-primary-text: var(--white);
   --button-donate-bg: var(--color-accent-fill);
+
+  /* Display headline shadow. Offsets are em so the shadow tracks the
+     font size across the mobile/desktop display steps. */
+  --shadow-display: 0.035em 0.045em 0 var(--color-accent-marker);
+
+  /* Headline that must break exactly where the copy breaks it. 8% of the
+     column is the largest size at which the longest phrase
+     ("Taxpayer Accountability.") still sets on one line, measured at
+     668px wide at 56px. Clamped so it stays sane at both extremes. */
+  --display-fit: 8cqi;
+  /* From 1024 up the headline sits beside the photograph. It is allowed to
+     run into the column's right padding (lg:-mr-s6 on the h1), so it can
+     take a larger share of the column than the stacked layout can. */
+  --display-fit-lg: 8.8cqi;
+
+  /* Stat figures are sized against their own tile, in bands by string
+     length, so a short figure can fill its tile without a long one wrapping.
+     Each band sits under 100/ratio for the widest string it has to carry;
+     the widest on the site is "High Performer" at 7.442. The default is the
+     narrowest band, so an unbanded figure can never overflow. */
+  --tile-figure-fit: 11.5cqi;
+  --tile-fit-1: 20cqi; /* <=3 chars, e.g. "$0", "80%", "#1" */
+  --tile-fit-2: 19cqi; /* <=5, e.g. "$2M+", "$5.5M" */
+  --tile-fit-3: 18cqi; /* <=7, e.g. "54 -> 10", "6 terms" */
+  --tile-fit-4: 15cqi; /* <=10, e.g. "Since 2014", "StormReady" */
+  --tile-fit-5: 13cqi; /* <=13, e.g. "17.80 -> 15.30" */
+  --tile-fit-6: 11.5cqi; /* longer, e.g. "High Performer" */
+  --nav-font-size: var(--size-nav);
+  --bullet-size: var(--size-bullet);
+  --bullet-color: var(--color-accent-marker);
+  /* vertical offset of the marker against the first line of a claim */
+  --bullet-offset: 0.55em;
+  /* stat tiles take their height from their width, not from the column */
+  --tile-aspect: 2 / 1;
+
+  /* --- layout ------------------------------------------------------------
+     Geometry that Tailwind reads back as var() from a class. These are
+     design decisions, so they live here rather than as arbitrary values
+     scattered through the components. */
+  --hero-copy-width: 52%;
+  --hero-image-width: 44%;
+  --hero-min-height: 68svh;
+  /* the diagonal that cuts the photograph away from the copy */
+  --hero-clip: polygon(0 0, 100% 0, 100% 100%, 14% 100%);
+
+  /* object-position, tuned per photograph against its crop */
+  --pos-hero-home: 50% 42%;
+  --pos-hero-record: 51% 12%;
+  --pos-hero-meet: 50% 10%;
+
+  --brand-mark-width: 150px;
+  --brand-mark-width-lg: 190px;
+
+  /* column splits */
+  --split-info-tiles: minmax(0, 2fr) minmax(0, 3fr);
+  --split-info-claims: minmax(0, 3fr) minmax(0, 2fr);
+  --split-donate: 0.75fr 1.25fr;
+  --split-footer: 1.5fr 1fr 1fr;
+  --banner-font-size: var(--size-banner);
   --button-donate-text: var(--white);
   --button-secondary-border: var(--color-bg-inverse);
   /* brand-guidelines 2.1: buttons are Archivo 600, not the body serif */

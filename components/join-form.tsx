@@ -12,7 +12,7 @@ const F = copy.forms.join;
 const V = copy.forms.validation;
 
 /**
- * `inline` — hero row. `compact` — card. `full` — adds name + involvement.
+ * `inline`: hero row. `compact`: card. `full`: adds name + involvement.
  * Submission is client-side only; wire to the campaign's provider before launch.
  */
 export function JoinForm({

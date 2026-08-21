@@ -1,4 +1,4 @@
-# Tom Lampe for Campbell County Commissioner — campaign site
+# Tom Lampe for Campbell County Commissioner: campaign site
 
 Next.js (App Router) · TypeScript · Tailwind v4 · shadcn/ui.
 Election Day: Tuesday, November 3, 2026.
@@ -17,7 +17,7 @@ npm run lint
 | Path                         | Purpose                                                                                                                               |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | `content/copy.ts`            | **All site copy, single file.** Remaining `{{PLACEHOLDER}}` slots are unwritten. Nothing outside this file contains user-facing text. |
-| `assets/design-tokens.json`  | Hand-authored tokens — primitive → semantic → component. Source of truth.                                                             |
+| `assets/design-tokens.json`  | Hand-authored tokens, primitive → semantic → component. Source of truth.                                                             |
 | `assets/design-tokens.css`   | The same tokens as CSS custom properties.                                                                                             |
 | `app/globals.css`            | Maps tokens onto Tailwind utilities and the Ledger Rule geometry.                                                                     |
 | `components/ledger-rule.tsx` | The site's signature device (claim ↔ evidence ↔ provenance).                                                                          |
@@ -29,8 +29,8 @@ npm run lint
 - **No hardcoded values.** Colors, spacing, type and radii come from tokens.
   Verify with:
   `node <design-system-skill>/scripts/validate-tokens.cjs --dir app` (also `components`, `lib`, `content`).
-  Two values that CSS variables cannot reach — `<meta name="theme-color">` and
-  `next/image` `sizes` — are imported from the token JSON via `lib/tokens.ts`.
+  Two values that CSS variables cannot reach, `<meta name="theme-color">` and
+  `next/image` `sizes`, are imported from the token JSON via `lib/tokens.ts`.
 - **Token names must not collide with shadcn's** (`--muted`, `--accent`,
   `--border`, `--input`, `--ring`, `--primary`, …). The bridge block in
   `app/globals.css` assigns those in the same `:root` and will silently win.
@@ -43,7 +43,7 @@ npm run lint
 Built: `/` and `/record`.
 Not built: `/meet-tom`, `/communities`, `/join`, `/donate`, `/privacy`, `/terms`.
 
-Forms are client-side only — no CRM or ESP is connected and nothing is stored.
+Forms are client-side only. No CRM or ESP is connected and nothing is stored.
 The donation button and several URLs are placeholders.
 
 ## Fonts

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { JoinForm } from "@/components/join-form";
-import { LedgerList } from "@/components/ledger-rule";
+import { InfoDisplay } from "@/components/info-display";
 import { copy } from "@/content/copy";
 import { HERO_IMAGE_SIZES } from "@/lib/tokens";
 
@@ -17,13 +17,13 @@ export const metadata: Metadata = {
 export default function RecordPage() {
   return (
     <>
-      {/* page header — copy left, photograph as the right half */}
+      {/* page header: copy left, photograph as the right half */}
       <section
         aria-labelledby="record-h"
         className="relative flex flex-col overflow-hidden bg-inverse lg:flex-row lg:items-center"
       >
         <div className="container-page relative z-10 w-full shrink-0 py-s7">
-          <div className="lg:w-[52%] lg:pr-s6">
+          <div className="lg:w-[var(--hero-copy-width)] lg:pr-s6">
             <p className="t-label text-on-inverse">{R.hero.eyebrow}</p>
             <h1 id="record-h" className="t-h1 mt-s3 text-on-inverse">
               {R.hero.heading}
@@ -34,14 +34,14 @@ export default function RecordPage() {
           </div>
         </div>
 
-        <div className="relative h-64 w-full overflow-hidden sm:h-80 lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-[44%] lg:[clip-path:polygon(0_0,100%_0,100%_100%,14%_100%)]">
+        <div className="relative h-64 w-full overflow-hidden sm:h-80 lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-[var(--hero-image-width)] lg:[clip-path:var(--hero-clip)]">
           <Image
-            src="/tom-lampe-portrait.webp"
+            src="/tom-lampe-record.webp"
             alt={R.hero.imageAlt}
             fill
             priority
             sizes={HERO_IMAGE_SIZES}
-            className="object-cover object-[42%_35%]"
+            className="object-cover object-[var(--pos-hero-record)]"
           />
         </div>
       </section>
@@ -89,9 +89,9 @@ export default function RecordPage() {
               <p className="t-h3 mt-s4 text-link">{theme.promise}</p>
             </header>
             <p className="t-lead measure mt-s5 text-body">{theme.intro}</p>
-            <LedgerList
+            <InfoDisplay
               entries={theme.entries}
-              className="mt-s5"
+              className="mt-s6"
               aria-label={theme.heading}
             />
           </div>

@@ -4,7 +4,7 @@
 
 /* ---------------------------------------------------------------------------
    Tailwind utility surface. Every utility resolves to a token defined in
-   assets/design-tokens.css — components must never carry raw values.
+   assets/design-tokens.css; components must never carry raw values.
    `inline` keeps the var() reference in the emitted CSS.
    ------------------------------------------------------------------------ */
 @theme inline {
@@ -44,7 +44,7 @@
   --spacing-s10: var(--space-10);
 }
 
-/* shadcn semantic bridge — registry components inherit the brand automatically */
+/* shadcn semantic bridge: registry components inherit the brand automatically */
 :root {
   --background: var(--color-bg-page);
   --foreground: var(--color-text-body);
@@ -80,7 +80,7 @@
   }
 
   body {
-    /* A single unbreakable token — a {{PLACEHOLDER}} now, a long URL later —
+    /* A single unbreakable token (a {{PLACEHOLDER}} now, a long URL later)
        must never widen the page. */
     /* `anywhere`, not `break-word`: only `anywhere` lets an unbreakable
        token shrink a flex/grid item's min-content size, which is what
@@ -139,7 +139,9 @@
   .t-stat,
   .t-label,
   .t-small,
-  .t-legal {
+  .t-legal,
+  .t-nav,
+  .t-banner {
     font-family: var(--font-display);
     font-variant-numeric: tabular-nums lining-nums;
     font-feature-settings:
@@ -196,8 +198,26 @@
     line-height: var(--lh-small);
   }
 
+  /* Nav and the election-day banner are their own roles so they can grow
+     without touching .t-small (used in eight other places) or .t-legal
+     (the footer disclaimer, which is pinned at its minimum by Q11). */
+  .t-nav {
+    font-size: var(--nav-font-size);
+    line-height: var(--lh-small);
+  }
+  .t-banner {
+    font-size: var(--banner-font-size);
+    line-height: var(--lh-small);
+  }
+
+  /* Signal Red offset behind the home hero headline. Decorative, so it is
+     opt-in per element rather than baked into .t-display. */
+  .t-display-shadow {
+    text-shadow: var(--shadow-display);
+  }
+
   /* brand-guidelines 2.1: buttons are Archivo 600. A role class, not a
-     `text-*` utility — `text-<size>` and `text-<colour>` collide in
+     `text-*` utility; `text-<size>` and `text-<colour>` collide in
      tailwind-merge and the colour loses. */
   .t-button,
   .t-button-lg {
@@ -237,6 +257,91 @@
     }
   }
 
+  /* Sized against its container, not the viewport: the hero copy column is
+     704px wide when stacked but 467px at 1024 and 559px above 1280, so no
+     breakpoint set keeps all three phrases unwrapped. Requires the parent
+     to carry .fit-container. */
+  .t-display-fit {
+    font-size: clamp(
+      var(--size-display-min),
+      var(--display-fit),
+      var(--size-display)
+    );
+  }
+  .fit-container {
+    container-type: inline-size;
+  }
+
+  /* Beside the photograph the headline gets the wider ratio. */
+  @media (min-width: 1024px) {
+    .t-display-fit {
+      font-size: clamp(
+        var(--size-display-min),
+        var(--display-fit-lg),
+        var(--size-display)
+      );
+    }
+  }
+
+  /* Hero lead only: the 1.6 body leading is too airy directly under a
+     display headline. .t-lead keeps 1.6 everywhere else. */
+  .t-lead-tight {
+    line-height: var(--lh-lead-tight);
+  }
+
+  /* --- Stat tiles -------------------------------------------------------
+     Figure and label are Signal Red on a white tile. Red on the indigo band
+     is 2.76:1 and fails at any size, so the tile carries its own ground:
+     Signal Red on white is 4.45:1 (large text) and Signal Red Deep is
+     6.14:1 (any size). Sizes are container-relative so the longest figure
+     fills its tile. */
+  .t-tile-figure {
+    font-family: var(--font-display);
+    font-weight: var(--weight-extrabold);
+    line-height: var(--lh-stat);
+    letter-spacing: var(--ls-stat);
+    font-variant-numeric: tabular-nums lining-nums;
+    font-feature-settings:
+      "tnum" 1,
+      "lnum" 1;
+    overflow-wrap: normal;
+  }
+  .t-tile-figure {
+    font-size: clamp(
+      var(--size-tile-figure-min),
+      var(--tile-figure-fit),
+      var(--size-tile-figure-max)
+    );
+  }
+  /* Set on the tile, which is the query container the figure measures. */
+  .fig-1 {
+    --tile-figure-fit: var(--tile-fit-1);
+  }
+  .fig-2 {
+    --tile-figure-fit: var(--tile-fit-2);
+  }
+  .fig-3 {
+    --tile-figure-fit: var(--tile-fit-3);
+  }
+  .fig-4 {
+    --tile-figure-fit: var(--tile-fit-4);
+  }
+  .fig-5 {
+    --tile-figure-fit: var(--tile-fit-5);
+  }
+  .fig-6 {
+    --tile-figure-fit: var(--tile-fit-6);
+  }
+  .t-tile-label {
+    font-family: var(--font-display);
+    font-size: var(--size-tile-label);
+    line-height: var(--lh-label);
+    letter-spacing: var(--ls-label);
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    overflow-wrap: normal;
+  }
+
   .container-page {
     width: 100%;
     max-width: var(--container);
@@ -265,7 +370,104 @@
 }
 
 @layer utilities {
-  /* --- The Ledger Rule — brand-guidelines.md §6 -------------------------- */
+  /* --- Info display ------------------------------------------------------
+     The claim-and-figure layout used by every such section on the site:
+     claims as a marked list on one side, the quantified ones as stat tiles
+     on the other. Two grid tracks, both stretching, so the columns are
+     always the same height.
+
+     Shape and tone arrive as data attributes rather than class strings, so
+     the component carries no geometry and no colour of its own. Every value
+     below resolves to a token. */
+  .info-display {
+    display: grid;
+    gap: var(--space-7);
+    /* neither column stretches to match the other; whichever is shorter
+       simply ends, and the leftover space is left alone */
+    align-items: start;
+  }
+  .info-display[data-tone="dark"] {
+    --info-claim-color: var(--color-text-on-inverse);
+    --info-label-color: var(--color-text-on-inverse);
+    --info-tile-border: var(--color-text-on-inverse);
+  }
+  .info-display[data-tone="light"] {
+    --info-claim-color: var(--color-text-body);
+    --info-label-color: var(--color-accent-fill);
+    --info-tile-border: var(--color-bg-inverse);
+  }
+
+  /* claims */
+  .info-claims {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    color: var(--info-claim-color);
+  }
+  .info-claims > li {
+    position: relative;
+    padding-left: var(--space-5);
+  }
+  /* the marker is Signal Red as a non-text block, which is what §1.2 permits */
+  .info-claims > li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: var(--bullet-offset);
+    width: var(--bullet-size);
+    height: var(--bullet-size);
+    background: var(--bullet-color);
+  }
+
+  /* tiles */
+  .info-tiles {
+    display: grid;
+    gap: var(--space-4);
+  }
+  .info-tile {
+    container-type: inline-size;
+    /* aspect-ratio transfers a minimum width from the content height; without
+       this the tile inflates its own grid track. */
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* height comes from the ratio. Content taller than the ratio grows the
+       tile rather than being clipped, so nothing is ever cut off. */
+    aspect-ratio: var(--tile-aspect);
+    padding: var(--space-5);
+    border: var(--bw-emphasis) solid var(--info-tile-border);
+  }
+  .info-figure {
+    color: var(--color-accent-marker);
+  }
+  .info-label {
+    margin-top: var(--space-3);
+    color: var(--info-label-color);
+  }
+
+  @media (min-width: 640px) {
+    .info-claims[data-cols="2"] {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-content: start;
+      column-gap: var(--space-6);
+    }
+    .info-tiles[data-cols="2"] {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .info-display:has(.info-tiles) {
+      grid-template-columns: var(--split-info-tiles);
+    }
+    .info-display:has(.info-claims[data-cols="2"]) {
+      grid-template-columns: var(--split-info-claims);
+    }
+  }
+
+  /* --- The Ledger Rule, brand-guidelines.md §6 -------------------------- */
   /* Vertical divider at >=1024px; rotates to horizontal below. Geometry only;
      colour and metrics come from tokens. */
   /* The sheet: bounded top and bottom so the rows read as one table rather

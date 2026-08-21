@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { BrandMark } from "@/components/brand-mark";
 import { SocialLinks } from "@/components/social-links";
@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const calId = useId();
 
   const [lastPath, setLastPath] = useState(pathname);
   if (lastPath !== pathname) {
@@ -40,16 +41,66 @@ export function SiteHeader() {
 
       <div className="bg-inverse-deep text-on-inverse">
         <div className="container-page flex min-h-11 items-center justify-between gap-s4">
-          <p className="t-legal">
-            <span
+          <p className="t-banner flex items-center gap-s2">
+            {/* Calendar glyph. Solid body, two rings, knocked-out page with
+                date squares. Drawn here rather than pulled from an icon set
+                (brand-guidelines §0.2). */}
+            <svg
+              viewBox="0 0 24 24"
               aria-hidden="true"
-              className="mr-s2 inline-block h-s2 w-s2 bg-marker align-middle"
-            />
-            <span className="text-on-inverse">
-              {copy.global.electionDayLabel}
-            </span>{" "}
-            <span className="text-muted-on-inverse">
-              {copy.global.electionDate}
+              className="size-5 shrink-0 fill-marker"
+            >
+              <mask id={calId}>
+                <rect width="24" height="24" fill="#fff" />
+                {/* the page */}
+                <rect x="1.5" y="8" width="21" height="14.5" fill="#000" />
+                {/* the gap the rings sit in */}
+                <rect
+                  x="4.4"
+                  y="1.4"
+                  width="3.6"
+                  height="5.8"
+                  rx="1.8"
+                  fill="#000"
+                />
+                <rect
+                  x="16"
+                  y="1.4"
+                  width="3.6"
+                  height="5.8"
+                  rx="1.8"
+                  fill="#000"
+                />
+              </mask>
+
+              <rect
+                y="2.1"
+                width="24"
+                height="21.6"
+                rx="1.6"
+                mask={`url(#${calId})`}
+              />
+              <rect x="5" width="2.4" height="5.8" rx="1.2" />
+              <rect x="16.6" width="2.4" height="5.8" rx="1.2" />
+
+              <rect x="13" y="9.8" width="3" height="2.6" />
+              <rect x="18" y="9.8" width="3" height="2.6" />
+              <rect x="3" y="14" width="3" height="2.6" />
+              <rect x="8" y="14" width="3" height="2.6" />
+              <rect x="13" y="14" width="3" height="2.6" />
+              <rect x="18" y="14" width="3" height="2.6" />
+              <rect x="3" y="18.2" width="3" height="2.6" />
+              <rect x="8" y="18.2" width="3" height="2.6" />
+              <rect x="13" y="18.2" width="3" height="2.6" />
+              <rect x="18" y="18.2" width="3" height="2.6" />
+            </svg>
+            <span>
+              <span className="text-on-inverse">
+                {copy.global.electionDayLabel}
+              </span>{" "}
+              <span className="text-muted-on-inverse">
+                {copy.global.electionDate}
+              </span>
             </span>
           </p>
           <SocialLinks tone="dark" />
@@ -60,7 +111,7 @@ export function SiteHeader() {
         <div className="container-page flex items-center justify-between gap-s5 py-s3">
           <BrandMark
             tone="dark"
-            className="w-[150px] shrink-0 sm:w-[190px]"
+            className="w-[var(--brand-mark-width)] shrink-0 sm:w-[var(--brand-mark-width-lg)]"
             priority
           />
 
@@ -72,7 +123,7 @@ export function SiteHeader() {
                     href={item.href}
                     aria-current={isActive(item.href) ? "page" : undefined}
                     className={cn(
-                      "t-small flex min-h-11 items-center px-s3 font-semibold transition-colors",
+                      "t-nav flex min-h-11 items-center px-s3 font-semibold transition-colors",
                       isActive(item.href)
                         ? "text-heading underline decoration-2 underline-offset-8"
                         : "text-ink-muted hover:text-heading",
@@ -121,7 +172,7 @@ export function SiteHeader() {
         className="fixed inset-0 z-[55] flex flex-col overscroll-contain bg-inverse text-on-inverse lg:hidden"
       >
         <div className="container-page flex shrink-0 items-center justify-between py-s3">
-          <BrandMark tone="light" className="w-[150px]" />
+          <BrandMark tone="light" className="w-[var(--brand-mark-width)]" />
           <button
             type="button"
             onClick={() => setOpen(false)}

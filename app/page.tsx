@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { DonateModule } from "@/components/donate-module";
 import { JoinForm } from "@/components/join-form";
-import { LedgerList } from "@/components/ledger-rule";
+import { InfoDisplay } from "@/components/info-display";
 import { Reveal } from "@/components/reveal";
 import { copy } from "@/content/copy";
 import { HERO_IMAGE_SIZES } from "@/lib/tokens";
@@ -13,15 +13,19 @@ const H = copy.home;
 export default function HomePage() {
   return (
     <>
-      {/* hero — copy left, photograph as the right half of the section */}
-      <section className="relative flex flex-col overflow-hidden bg-inverse-deep lg:min-h-[68svh] lg:flex-row lg:items-center">
+      {/* hero: copy left, photograph as the right half of the section */}
+      <section className="relative flex flex-col overflow-hidden bg-inverse-deep lg:min-h-[var(--hero-min-height)] lg:flex-row lg:items-center">
         <div className="container-page relative z-10 w-full shrink-0 py-s6">
-          <div className="lg:w-[52%] lg:pr-s6">
+          <div className="fit-container lg:w-[var(--hero-copy-width)] lg:pr-s6">
             <p className="t-label text-on-inverse">{H.hero.eyebrow}</p>
-            <h1 className="t-display mt-s3 text-on-inverse">
-              {H.hero.headline}
+            <h1 className="t-display t-display-fit t-display-shadow mt-s3 text-on-inverse lg:-mr-s6">
+              {H.hero.headlineLines.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
             </h1>
-            <p className="t-lead measure mt-s5 text-muted-on-inverse">
+            <p className="t-lead t-lead-tight measure mt-s5 text-muted-on-inverse">
               {H.hero.lead}
             </p>
 
@@ -52,14 +56,14 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="relative h-64 w-full overflow-hidden sm:h-80 lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-[44%] lg:[clip-path:polygon(0_0,100%_0,100%_100%,14%_100%)]">
+        <div className="relative h-64 w-full overflow-hidden sm:h-80 lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-[var(--hero-image-width)] lg:[clip-path:var(--hero-clip)]">
           <Image
             src="/tom-lampe-parade.webp"
             alt={H.hero.imageAlt}
             fill
             priority
             sizes={HERO_IMAGE_SIZES}
-            className="object-cover object-[50%_42%]"
+            className="object-cover object-[var(--pos-hero-home)]"
           />
         </div>
       </section>
@@ -83,7 +87,7 @@ export default function HomePage() {
 
       {/* donate */}
       <section aria-labelledby="donate-h" className="bg-band">
-        <div className="container-page grid gap-s6 py-s7 lg:grid-cols-[0.75fr_1.25fr] lg:items-center lg:gap-s8">
+        <div className="container-page grid gap-s6 py-s7 lg:grid-cols-[var(--split-donate)] lg:items-center lg:gap-s8">
           <div>
             <p className="t-label text-link">{H.donate.eyebrow}</p>
             <h2 id="donate-h" className="t-h2 mt-s2 text-heading">
@@ -95,17 +99,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* proof — the Ledger Rule */}
-      {/* proof — the Ledger Rule, set as an audit sheet */}
+      {/* proof: claims as a marked list, figures as a 2x2 stat block */}
       <section aria-labelledby="proof-h" className="bg-inverse-deep">
         <div className="container-page py-s8">
-          {/* A section heading, not a caption: this was previously an <h2>
-              styled at label size, which flattened the page hierarchy. */}
           <h2 id="proof-h" className="t-h2 measure text-on-inverse">
             {H.proof.heading}
           </h2>
 
-          <LedgerList
+          <InfoDisplay
             entries={H.proof.entries}
             tone="dark"
             className="mt-s6"

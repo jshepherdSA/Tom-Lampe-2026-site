@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { JoinForm } from "@/components/join-form";
-import { InfoDisplay } from "@/components/info-display";
+import { RecordGrid } from "@/components/record-grid";
 import { copy } from "@/content/copy";
 import { HERO_IMAGE_SIZES } from "@/lib/tokens";
 
@@ -89,7 +89,7 @@ export default function RecordPage() {
               <p className="t-h3 mt-s4 text-link">{theme.promise}</p>
             </header>
             <p className="t-lead measure mt-s5 text-body">{theme.intro}</p>
-            <InfoDisplay
+            <RecordGrid
               entries={theme.entries}
               className="mt-s6"
               aria-label={theme.heading}
@@ -129,13 +129,6 @@ export default function RecordPage() {
                 render={<Link href="/donate" />}
               >
                 {R.close.donateCta}
-              </Button>
-              <Button
-                variant="outline2"
-                size="cta-lg"
-                render={<Link href="/communities" />}
-              >
-                {R.close.secondaryCta}
               </Button>
             </div>
           </div>

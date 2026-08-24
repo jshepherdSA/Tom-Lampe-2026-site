@@ -59,12 +59,14 @@
   --size-button: 15px;
   --size-button-lg: 17px;
   --size-nav: 16px;
+  /* record grid: lead figure. Its own token so the lead can move without
+     dragging every --size-stat on the site with it. */
+  --size-record-lead: 56px;
+  --size-record-standard: 36px;
+  --size-record-minor: 17px;
   --size-banner: 16px;
   --size-ledger-figure: 30px;
   --size-bullet: 9px;
-  --size-tile-figure-min: 28px;
-  --size-tile-figure-max: 88px;
-  --size-tile-label: 16px;
 
   --lh-display: 1.02;
   --lh-h1: 1.08;
@@ -158,25 +160,12 @@
      take a larger share of the column than the stacked layout can. */
   --display-fit-lg: 8.8cqi;
 
-  /* Stat figures are sized against their own tile, in bands by string
-     length, so a short figure can fill its tile without a long one wrapping.
-     Each band sits under 100/ratio for the widest string it has to carry;
-     the widest on the site is "High Performer" at 7.442. The default is the
-     narrowest band, so an unbanded figure can never overflow. */
-  --tile-figure-fit: 11.5cqi;
-  --tile-fit-1: 20cqi; /* <=3 chars, e.g. "$0", "80%", "#1" */
-  --tile-fit-2: 19cqi; /* <=5, e.g. "$2M+", "$5.5M" */
-  --tile-fit-3: 18cqi; /* <=7, e.g. "54 -> 10", "6 terms" */
-  --tile-fit-4: 15cqi; /* <=10, e.g. "Since 2014", "StormReady" */
-  --tile-fit-5: 13cqi; /* <=13, e.g. "17.80 -> 15.30" */
-  --tile-fit-6: 11.5cqi; /* longer, e.g. "High Performer" */
   --nav-font-size: var(--size-nav);
   --bullet-size: var(--size-bullet);
   --bullet-color: var(--color-accent-marker);
+  --minor-marker-color: var(--color-rule-ledger);
   /* vertical offset of the marker against the first line of a claim */
   --bullet-offset: 0.55em;
-  /* stat tiles take their height from their width, not from the column */
-  --tile-aspect: 2 / 1;
 
   /* --- layout ------------------------------------------------------------
      Geometry that Tailwind reads back as var() from a class. These are
@@ -197,8 +186,6 @@
   --brand-mark-width-lg: 190px;
 
   /* column splits */
-  --split-info-tiles: minmax(0, 2fr) minmax(0, 3fr);
-  --split-info-claims: minmax(0, 3fr) minmax(0, 2fr);
   --split-donate: 0.75fr 1.25fr;
   --split-footer: 1.5fr 1fr 1fr;
   --banner-font-size: var(--size-banner);

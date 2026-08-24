@@ -14,11 +14,14 @@ export function Reveal({
   delay = 0,
   className,
   as: Tag = "div",
+  "data-kind": dataKind,
 }: {
   children: React.ReactNode;
   delay?: number;
   className?: string;
   as?: "div" | "section" | "li" | "article";
+  /** Forwarded so callers can style a variant from CSS alone. */
+  "data-kind"?: string;
 }) {
   const ref = useRef<HTMLElement | null>(null);
   const [shown, setShown] = useState(false);
@@ -53,6 +56,7 @@ export function Reveal({
       ref={ref as never}
       className={cn("reveal", className)}
       data-shown={shown}
+      data-kind={dataKind}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}

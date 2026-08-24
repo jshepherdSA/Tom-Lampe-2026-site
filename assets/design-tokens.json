@@ -168,16 +168,16 @@
         "$value": "16px",
         "$type": "dimension"
       },
-      "tile-figure-min": {
-        "$value": "28px",
+      "record-lead": {
+        "$value": "56px",
         "$type": "dimension"
       },
-      "tile-figure-max": {
-        "$value": "88px",
+      "record-standard": {
+        "$value": "36px",
         "$type": "dimension"
       },
-      "tile-label": {
-        "$value": "16px",
+      "record-minor": {
+        "$value": "17px",
         "$type": "dimension"
       }
     },
@@ -551,14 +551,6 @@
         "$value": "190px",
         "$type": "dimension"
       },
-      "split-info-tiles": {
-        "$value": "minmax(0, 2fr) minmax(0, 3fr)",
-        "$type": "other"
-      },
-      "split-info-claims": {
-        "$value": "minmax(0, 3fr) minmax(0, 2fr)",
-        "$type": "other"
-      },
       "split-donate": {
         "$value": "0.75fr 1.25fr",
         "$type": "other"
@@ -570,10 +562,6 @@
       "bullet-offset": {
         "$value": "0.55em",
         "$type": "dimension"
-      },
-      "tile-aspect": {
-        "$value": "2 / 1",
-        "$type": "other"
       }
     }
   },

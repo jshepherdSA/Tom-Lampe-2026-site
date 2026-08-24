@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { DonateModule } from "@/components/donate-module";
 import { JoinForm } from "@/components/join-form";
-import { InfoDisplay } from "@/components/info-display";
+import { RecordGrid } from "@/components/record-grid";
 import { Reveal } from "@/components/reveal";
 import { copy } from "@/content/copy";
 import { HERO_IMAGE_SIZES } from "@/lib/tokens";
@@ -106,7 +106,7 @@ export default function HomePage() {
             {H.proof.heading}
           </h2>
 
-          <InfoDisplay
+          <RecordGrid
             entries={H.proof.entries}
             tone="dark"
             className="mt-s6"
@@ -133,7 +133,7 @@ export default function HomePage() {
             </h2>
             <p className="mt-s4 text-ink-muted">{H.explore.body}</p>
           </div>
-          <ul className="mt-s6 grid gap-s5 md:grid-cols-3">
+          <ul className="mt-s6 grid gap-s5 md:grid-cols-2">
             {H.explore.items.map((item, i) => (
               <Reveal as="li" key={item.href} delay={i * 70}>
                 <Link

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { InfoDisplay } from "@/components/info-display";
+import { RecordGrid } from "@/components/record-grid";
 import { copy } from "@/content/copy";
 import { HALF_IMAGE_SIZES, HERO_IMAGE_SIZES } from "@/lib/tokens";
 
@@ -73,7 +73,7 @@ export default function MeetTomPage() {
             {M.service.lead}
           </p>
 
-          <InfoDisplay
+          <RecordGrid
             entries={M.serviceEntries}
             tone="dark"
             className="mt-s6"

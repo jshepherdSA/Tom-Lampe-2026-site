@@ -289,59 +289,6 @@
     line-height: var(--lh-lead-tight);
   }
 
-  /* --- Stat tiles -------------------------------------------------------
-     Figure and label are Signal Red on a white tile. Red on the indigo band
-     is 2.76:1 and fails at any size, so the tile carries its own ground:
-     Signal Red on white is 4.45:1 (large text) and Signal Red Deep is
-     6.14:1 (any size). Sizes are container-relative so the longest figure
-     fills its tile. */
-  .t-tile-figure {
-    font-family: var(--font-display);
-    font-weight: var(--weight-extrabold);
-    line-height: var(--lh-stat);
-    letter-spacing: var(--ls-stat);
-    font-variant-numeric: tabular-nums lining-nums;
-    font-feature-settings:
-      "tnum" 1,
-      "lnum" 1;
-    overflow-wrap: normal;
-  }
-  .t-tile-figure {
-    font-size: clamp(
-      var(--size-tile-figure-min),
-      var(--tile-figure-fit),
-      var(--size-tile-figure-max)
-    );
-  }
-  /* Set on the tile, which is the query container the figure measures. */
-  .fig-1 {
-    --tile-figure-fit: var(--tile-fit-1);
-  }
-  .fig-2 {
-    --tile-figure-fit: var(--tile-fit-2);
-  }
-  .fig-3 {
-    --tile-figure-fit: var(--tile-fit-3);
-  }
-  .fig-4 {
-    --tile-figure-fit: var(--tile-fit-4);
-  }
-  .fig-5 {
-    --tile-figure-fit: var(--tile-fit-5);
-  }
-  .fig-6 {
-    --tile-figure-fit: var(--tile-fit-6);
-  }
-  .t-tile-label {
-    font-family: var(--font-display);
-    font-size: var(--size-tile-label);
-    line-height: var(--lh-label);
-    letter-spacing: var(--ls-label);
-    font-weight: var(--weight-semibold);
-    text-transform: uppercase;
-    overflow-wrap: normal;
-  }
-
   .container-page {
     width: 100%;
     max-width: var(--container);
@@ -362,189 +309,151 @@
   .section-y {
     padding-block: var(--space-7);
   }
-  @media (min-width: 768px) {
-    .section-y {
-      padding-block: var(--space-9);
-    }
-  }
-}
 
-@layer utilities {
-  /* --- Info display ------------------------------------------------------
-     The claim-and-figure layout used by every such section on the site:
-     claims as a marked list on one side, the quantified ones as stat tiles
-     on the other. Two grid tracks, both stretching, so the columns are
-     always the same height.
+  /* --- Record grid ------------------------------------------------------
+     One grid for every claim-and-figure section on the site. Hierarchy is
+     authored in copy.ts as a tier; nothing here measures anything or picks
+     an arrangement at runtime. Spec: docs/info-display-spec.md.
 
-     Shape and tone arrive as data attributes rather than class strings, so
-     the component carries no geometry and no colour of its own. Every value
-     below resolves to a token. */
-  .info-display {
+     Three columns at >=1100, two at >=640, one below. Identical everywhere. */
+  .record-grid {
     display: grid;
-    gap: var(--space-7);
-    /* neither column stretches to match the other; whichever is shorter
-       simply ends, and the leftover space is left alone */
-    align-items: start;
+    grid-template-columns: minmax(0, 1fr);
+    column-gap: var(--space-6);
+    row-gap: var(--space-7);
   }
-  .info-display[data-tone="dark"] {
-    --info-claim-color: var(--color-text-on-inverse);
-    --info-label-color: var(--color-text-on-inverse);
-    --info-tile-border: var(--color-text-on-inverse);
+  .record-grid[data-tone="light"] {
+    --record-lead-bg: var(--color-bg-inverse);
+    --record-lead-figure-color: var(--color-text-on-inverse);
+    --record-lead-label-color: var(--color-text-muted-on-inverse);
+    --record-lead-claim-color: var(--color-text-on-inverse);
+    --record-figure-color: var(--color-accent-marker);
+    --record-label-color: var(--color-accent-fill);
+    --record-claim-color: var(--color-text-body);
+    --record-minor-color: var(--color-text-muted);
+    --record-strip-rule: var(--color-rule-hairline);
+    --record-designation-figure-color: var(--color-text-heading);
   }
-  .info-display[data-tone="light"] {
-    --info-claim-color: var(--color-text-body);
-    --info-label-color: var(--color-accent-fill);
-    --info-tile-border: var(--color-bg-inverse);
+  .record-grid[data-tone="dark"] {
+    --record-lead-bg: var(--white);
+    --record-lead-figure-color: var(--color-accent-fill);
+    --record-lead-label-color: var(--color-accent-fill);
+    --record-lead-claim-color: var(--color-text-body);
+    --record-figure-color: var(--white);
+    --record-label-color: var(--indigo-200);
+    --record-claim-color: var(--color-text-on-inverse);
+    --record-minor-color: var(--color-text-muted-on-inverse);
+    --record-strip-rule: var(--color-rule-ledger);
+    /* the heading indigo would vanish on this band */
+    --record-designation-figure-color: var(--color-text-on-inverse);
   }
 
-  /* claims */
-  .info-claims {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    color: var(--info-claim-color);
+  /* lead: full width, filled. The fill does the grouping, so no rule. */
+  .record-lead {
+    grid-column: 1 / -1;
+    display: grid;
+    align-items: center;
+    gap: var(--space-5);
+    padding: var(--space-6);
+    background: var(--record-lead-bg);
   }
-  .info-claims > li {
+  .record-lead-figure {
+    font-family: var(--font-display);
+    font-size: var(--size-record-lead);
+    line-height: var(--lh-stat);
+    letter-spacing: var(--ls-stat);
+    font-weight: var(--weight-extrabold);
+    font-variant-numeric: tabular-nums lining-nums;
+    overflow-wrap: normal;
+    color: var(--record-lead-figure-color);
+  }
+  .record-lead-label {
+    margin-top: var(--space-2);
+    color: var(--record-lead-label-color);
+  }
+  .record-lead-claim {
+    font-size: var(--size-lead);
+    line-height: var(--lh-lead-tight);
+    color: var(--record-lead-claim-color);
+  }
+
+  /* standard: one column, Signal Red rule above. That rule is the Ledger
+     Rule from brand-guidelines §6; this section is where it now lives. */
+  .record-standard {
+    border-top: var(--bw-emphasis) solid var(--color-accent-marker);
+    padding-top: var(--space-3);
+  }
+  .record-figure {
+    font-family: var(--font-display);
+    font-size: var(--size-record-standard);
+    line-height: var(--lh-stat);
+    letter-spacing: var(--ls-stat);
+    font-weight: var(--weight-extrabold);
+    font-variant-numeric: tabular-nums lining-nums;
+    overflow-wrap: normal;
+    color: var(--record-figure-color);
+  }
+  .record-label {
+    margin-top: var(--space-2);
+    color: var(--record-label-color);
+  }
+  .record-claim {
+    margin-top: var(--space-3);
+    color: var(--record-claim-color);
+  }
+
+  /* A designation is a named distinction, not a quantity. It keeps the
+     standard slot but takes the quiet ledger rule and heading-coloured type
+     one step down, so it can sit beside a dollar figure without reading as
+     something you could compare against it. */
+  .record-standard[data-kind="designation"] {
+    border-top-color: var(--color-rule-ledger);
+  }
+  .record-standard[data-kind="designation"] .record-figure {
+    font-size: var(--size-h3);
+    color: var(--record-designation-figure-color);
+  }
+
+  /* minor: one compact strip at the foot, under a single hairline */
+  .record-strip {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    column-gap: var(--space-6);
+    row-gap: var(--space-4);
+    padding-top: var(--space-5);
+    border-top: var(--bw-hairline) solid var(--record-strip-rule);
+  }
+  .record-minor {
     position: relative;
     padding-left: var(--space-5);
+    font-size: var(--size-record-minor);
+    line-height: var(--lh-small);
+    color: var(--record-minor-color);
   }
-  /* the marker is Signal Red as a non-text block, which is what §1.2 permits */
-  .info-claims > li::before {
+  .record-minor::before {
     content: "";
     position: absolute;
     left: 0;
     top: var(--bullet-offset);
     width: var(--bullet-size);
     height: var(--bullet-size);
-    background: var(--bullet-color);
-  }
-
-  /* tiles */
-  .info-tiles {
-    display: grid;
-    gap: var(--space-4);
-  }
-  .info-tile {
-    container-type: inline-size;
-    /* aspect-ratio transfers a minimum width from the content height; without
-       this the tile inflates its own grid track. */
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* height comes from the ratio. Content taller than the ratio grows the
-       tile rather than being clipped, so nothing is ever cut off. */
-    aspect-ratio: var(--tile-aspect);
-    padding: var(--space-5);
-    border: var(--bw-emphasis) solid var(--info-tile-border);
-  }
-  .info-figure {
-    color: var(--color-accent-marker);
-  }
-  .info-label {
-    margin-top: var(--space-3);
-    color: var(--info-label-color);
+    background: var(--minor-marker-color);
   }
 
   @media (min-width: 640px) {
-    .info-claims[data-cols="2"] {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      align-content: start;
-      column-gap: var(--space-6);
+    .record-grid,
+    .record-strip {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-    .info-tiles[data-cols="2"] {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    .record-lead {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
     }
   }
-
-  @media (min-width: 1024px) {
-    .info-display:has(.info-tiles) {
-      grid-template-columns: var(--split-info-tiles);
-    }
-    .info-display:has(.info-claims[data-cols="2"]) {
-      grid-template-columns: var(--split-info-claims);
-    }
-  }
-
-  /* --- The Ledger Rule, brand-guidelines.md §6 -------------------------- */
-  /* Vertical divider at >=1024px; rotates to horizontal below. Geometry only;
-     colour and metrics come from tokens. */
-  /* The sheet: bounded top and bottom so the rows read as one table rather
-     than as loose items. */
-  .ledger-sheet {
-    /* fit-content so the bounding rules stop at the evidence column instead
-       of running on across empty space */
-    width: fit-content;
-    max-width: 100%;
-    border-top: var(--ledger-rule-width) solid var(--ledger-rule-color);
-    border-bottom: var(--ledger-rule-width) solid var(--ledger-rule-color);
-  }
-
-  /* The figure uses its own token, not the page stat size: it must hold one
-     line inside the evidence cell or the column stops aligning. */
-  .t-ledger-figure {
-    font-family: var(--font-display);
-    font-size: var(--ledger-figure-size);
-    line-height: var(--lh-stat);
-    letter-spacing: var(--ls-stat);
-    font-weight: var(--weight-extrabold);
-    font-variant-numeric: tabular-nums lining-nums;
-    font-feature-settings:
-      "tnum" 1,
-      "lnum" 1;
-    overflow-wrap: normal;
-  }
-
-  .ledger-row {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-3);
-    padding-block: var(--space-4);
-    border-bottom: var(--bw-hairline) solid var(--ledger-row-divider);
-  }
-  .ledger-sheet > .ledger-row:last-child {
-    border-bottom: 0;
-  }
-
-  /* On an inverse band the light hairline reads as a bright stripe; the
-     ledger tone is the correct weight there (4.16:1 on Indigo 900). */
-  .ledger-row[data-tone="dark"] {
-    border-bottom-color: var(--color-rule-ledger);
-  }
-  .ledger-evidence {
-    order: -1;
-    padding-top: var(--space-3);
-    border-top: var(--ledger-rule-width) solid var(--ledger-rule-color);
-  }
-  @media (min-width: 1024px) {
-    .ledger-row {
-      grid-template-columns: minmax(0, var(--measure-body)) var(
-          --ledger-evidence-width
-        );
-      justify-content: start;
-      gap: 0;
-      padding-block: 0;
-      border-bottom: 0;
-    }
-    .ledger-claim {
-      padding-right: var(--ledger-gutter);
-      padding-block: var(--space-4);
-      border-bottom: var(--bw-hairline) solid var(--ledger-row-divider);
-    }
-    .ledger-row[data-tone="dark"] .ledger-claim {
-      border-bottom-color: var(--color-rule-ledger);
-    }
-    .ledger-sheet > .ledger-row:last-child .ledger-claim {
-      border-bottom: 0;
-    }
-    .ledger-evidence {
-      order: 0;
-      padding-top: var(--space-4);
-      padding-bottom: var(--space-4);
-      padding-left: var(--ledger-gutter);
-      border-top: 0;
-      border-left: var(--ledger-rule-width) solid var(--ledger-rule-color);
+  @media (min-width: 1100px) {
+    .record-grid,
+    .record-strip {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 

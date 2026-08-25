@@ -18,7 +18,7 @@ export default function HomePage() {
         <div className="container-page relative z-10 w-full shrink-0 py-s6">
           <div className="fit-container lg:w-[var(--hero-copy-width)] lg:pr-s6">
             <p className="t-label text-on-inverse">{H.hero.eyebrow}</p>
-            <h1 className="t-display t-display-fit t-display-shadow mt-s3 text-on-inverse lg:-mr-s6">
+            <h1 className="t-display t-display-fit mt-s3 text-on-inverse lg:-mr-s6">
               {H.hero.headlineLines.map((line) => (
                 <span key={line} className="block">
                   {line}

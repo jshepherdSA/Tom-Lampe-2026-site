@@ -523,13 +523,6 @@
         "note": "KRS 121.190: never smaller, never reduced opacity"
       }
     },
-    "display": {
-      "shadow": {
-        "$value": "0.035em 0.045em 0 {semantic.color.accent-marker}",
-        "$type": "shadow",
-        "description": "Home hero headline shadow. Signal Red, em offsets so it tracks the display size step."
-      }
-    },
     "layout": {
       "hero-copy-width": {
         "$value": "52%",

@@ -146,10 +146,6 @@
   --button-primary-text: var(--white);
   --button-donate-bg: var(--color-accent-fill);
 
-  /* Display headline shadow. Offsets are em so the shadow tracks the
-     font size across the mobile/desktop display steps. */
-  --shadow-display: 0.035em 0.045em 0 var(--color-accent-marker);
-
   /* Headline that must break exactly where the copy breaks it. 8% of the
      column is the largest size at which the longest phrase
      ("Taxpayer Accountability.") still sets on one line, measured at

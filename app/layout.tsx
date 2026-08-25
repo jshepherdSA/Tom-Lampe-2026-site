@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { ScrollToTop } from "@/components/scroll-to-top";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { copy } from "@/content/copy";
@@ -55,6 +56,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <meta name="theme-color" content={THEME_COLOR} />
       </head>
       <body className="flex min-h-full flex-col">
+        <ScrollToTop />
         <SiteHeader />
         <main id="main" className="flex-1">
           {children}

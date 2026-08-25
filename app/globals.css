@@ -210,12 +210,6 @@
     line-height: var(--lh-small);
   }
 
-  /* Signal Red offset behind the home hero headline. Decorative, so it is
-     opt-in per element rather than baked into .t-display. */
-  .t-display-shadow {
-    text-shadow: var(--shadow-display);
-  }
-
   /* brand-guidelines 2.1: buttons are Archivo 600. A role class, not a
      `text-*` utility; `text-<size>` and `text-<colour>` collide in
      tailwind-merge and the colour loses. */

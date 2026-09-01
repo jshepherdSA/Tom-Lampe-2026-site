@@ -44,3 +44,6 @@ next-env.d.ts
 *.png
 !public/**/*.png
 !app/**/*.png
+
+# written by the dev-only /edit route; applied by hand, never committed
+content/copy-edits.json

@@ -11,6 +11,14 @@ const path = require("path");
 
 const ROOTS = ["app", "components", "content", "lib"];
 const EXT = new Set([".ts", ".tsx", ".css", ".svg", ".json", ".md"]);
+/**
+ * content/copy-edits.json is an inbox, not shipped copy. Nothing imports it;
+ * the /edit route writes it and a human applies it into copy.ts by hand. Its
+ * em dashes are the editor's typing, caught live in the browser and rewritten
+ * on the way into copy.ts, where this guard does apply. Scanning it here would
+ * fail the build on unapplied input and make the gate useless.
+ */
+const SKIP_FILES = new Set([path.join("content", "copy-edits.json")]);
 const PATTERNS = [
   { re: /—/g, name: "em dash (U+2014)" },
   { re: /&mdash;/gi, name: "&mdash;" },
@@ -23,7 +31,7 @@ const walk = (dir) => {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     const p = path.join(dir, e.name);
     if (e.isDirectory()) walk(p);
-    else if (EXT.has(path.extname(e.name))) {
+    else if (EXT.has(path.extname(e.name)) && !SKIP_FILES.has(p)) {
       fs.readFileSync(p, "utf8").split("\n").forEach((line, i) => {
         for (const { re, name } of PATTERNS) {
           re.lastIndex = 0;

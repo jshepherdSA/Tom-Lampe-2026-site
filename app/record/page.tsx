@@ -86,7 +86,6 @@ export default function RecordPage() {
               <h2 id={`${theme.slug}-h`} className="t-h2 mt-s2 text-heading">
                 {theme.heading}
               </h2>
-              <p className="t-h3 mt-s4 text-link">{theme.promise}</p>
             </header>
             <p className="t-lead measure mt-s5 text-body">{theme.intro}</p>
             <RecordGrid
@@ -97,22 +96,6 @@ export default function RecordPage() {
           </div>
         </section>
       ))}
-
-      {/* provenance */}
-      <section aria-labelledby="verify-h" className="bg-inverse-deep">
-        <div className="container-page py-s6">
-          <h2 id="verify-h" className="t-label text-on-inverse">
-            {R.verify.heading}
-          </h2>
-          <p className="measure mt-s3 text-on-inverse">{R.verify.body}</p>
-          <a
-            href={R.verify.href}
-            className="t-label mt-s3 inline-flex min-h-11 items-center text-on-inverse underline underline-offset-4"
-          >
-            {R.verify.href}
-          </a>
-        </div>
-      </section>
 
       {/* close */}
       <section aria-labelledby="close-h" className="section-y bg-page">

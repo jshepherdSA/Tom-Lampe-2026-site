@@ -45,7 +45,6 @@ export type RecordTheme = {
   heading: string;
   /** Short label for the jump nav. Falls back to `heading`. */
   navLabel?: string;
-  promise: string;
   intro: string;
   entries: RecordEntry[];
 };
@@ -107,7 +106,7 @@ export const copy = {
         "Taxpayer Accountability.",
         "Campbell County First.",
       ],
-      lead: "Tom Lampe has lived in Campbell County his whole life. He runs a local business and believes the county has to earn your trust. He has the experience, and he would rather you judge him on results.",
+      lead: "A vote for Tom Lampe means a Campbell County where families feel safe, roads and bridges are dependable, taxes are kept under control and essential services work, no matter where you live.",
       primaryCta: "Join the Team",
       secondaryCta: "Donate",
       imageAlt:
@@ -120,7 +119,7 @@ export const copy = {
     donate: {
       eyebrow: "Chip in",
       heading: "Funded by neighbors.",
-      body: "No corporate machine. No money from out of state. Every dollar goes to talking with Campbell County voters between now and November 3.",
+      body: "Let’s keep Campbell County moving forward. Support Tom Lampe with a donation today and your vote on November 3.",
       submit: "Contribute",
       otherLabel: "Other",
       otherFieldLabel: "Enter an amount",
@@ -148,7 +147,7 @@ export const copy = {
       entries: [
         {
           claim:
-            "Down every year since 2020. Services grew in that time. They did not shrink.",
+            "Tom Lampe has governed as a taxpayer hawk: cutting tax rates, eliminating unnecessary fees, demanding more efficient services and protecting the essential investments that keep Campbell County safe, strong and growing.",
           figure: "17.80 → 15.30",
           label: "Property-tax rate, cents per $100",
           tier: "lead",
@@ -162,14 +161,14 @@ export const copy = {
         },
         {
           claim:
-            "Got rid of the county’s Net Profits Tax, the tax on business profits. Small businesses and people who work for themselves no longer pay it.",
+            "Creating a county environment for businesses to succeed. Eliminated the Net Profits Tax for Campbell County Businesses and Sole Proprietors.",
           figure: "$0",
           label: "Net Profits Tax",
           tier: "standard",
         },
         {
           claim:
-            "Paid for treatment, recovery and the Drug Strike Force. Campbell County was the first county in Kentucky to be named a Recovery Ready Community.",
+            "Tom has supported funding for the Northern Kentucky Drug Strike Force while supporting treatment, recovery, police social workers and crisis intervention contributing to a drop in overdose deaths.",
           figure: "54 → 10",
           label: "Fatal overdoses per year, 2020 to 2024",
           tier: "standard",
@@ -177,8 +176,8 @@ export const copy = {
       ] as RecordEntry[],
     },
     explore: {
-      heading: "A county that is safer, costs less and stays connected.",
-      body: "Maybe you live along the river. Maybe you live in a suburb or out on a country road. This is for all of Campbell County, from Newport and Bellevue to Fort Thomas and Alexandria, and south into the farmland.",
+      heading: "No Community Left Behind In Campbell County",
+      body: "From Newport and Bellevue to Fort Thomas and Alexandria, and throughout rural southern Campbell County, Tom has worked to ensure every community benefits from Campbell County’s progress. Clean water, reliable internet, responsive public safety and essential services should reach everyone.",
       linkLabel: "Read more",
       items: [
         {
@@ -205,7 +204,7 @@ export const copy = {
     hero: {
       eyebrow: "Meet Tom",
       heading: "A neighbor who would rather you judge him on results.",
-      lead: "Tom Lampe has lived in Campbell County his whole life. He runs a local business and believes the county has to earn your trust.",
+      lead: "Tom Lampe is a lifelong Campbell County resident, local businessman and fiscal conservative who believes the government must earn the public’s trust.",
       imageAlt: "Tom Lampe at home with his wife and their three sons.",
     },
     /** Long-form biography. Each paragraph traces to the messaging documents. */
@@ -288,22 +287,16 @@ export const copy = {
     },
     hero: {
       eyebrow: "The Record",
-      heading: "Experience, measured by results.",
-      lead: "Tom Lampe watches every dollar. He has cut tax rates, dropped fees the county did not need, pushed for services that cost less to run, and protected the things that keep Campbell County safe and growing. Here is the record, one subject at a time.",
+      heading: "Lower Taxes. Better Services. A Stronger Campbell County.",
+      lead: "Tom Lampe has proven that improving quality of life doesn’t have to mean asking taxpayers for more. While tax rates and fees have declined, Tom has helped deliver major investments in roads, high-speed internet, clean water, public safety, parks and economic development. His approach is simple: spend taxpayer dollars responsibly, invest in the services that matter most, and keep Campbell County a safe, affordable and thriving place to live, work and raise a family.",
       imageAlt:
         "Tom Lampe in a charcoal suit and patterned tie, photographed in 2026.",
     },
     jumpNavHeading: "On this page",
     themeEyebrow: "A vote for Tom means",
-    verify: {
-      heading: "Check it yourself",
-      body: "The county posts its agendas, minutes, budgets, audits and votes online. You can check every claim on this page against the county’s own records.",
-      /** PRE-LAUNCH VERIFY: county records URL. */
-      href: "{{RECORD_VERIFY_URL}}",
-    },
     close: {
-      heading: "Like the record? Help protect it.",
-      body: "Campbell County neighbors pay for and run this campaign. Add your name, or chip in so we can keep talking with voters between now and November 3.",
+      heading: "Donate today.",
+      body: "Let’s keep Campbell County moving forward. Support Tom Lampe with a donation today and your vote on November 3.",
       donateCta: "Donate",
     },
     themes: [
@@ -311,45 +304,46 @@ export const copy = {
         slug: "taxes",
         navLabel: "Taxpayers",
         heading: "Respect for the Taxpayers of Campbell County",
-        promise: "Lower taxes. Efficient government. Responsible investment.",
         intro:
-          "Tom thinks the county should take no more than it needs. Families and businesses should keep more of what they earn.",
+          "Tom believes the government should take no more from taxpayers than it needs. Families and businesses should keep more of what they earn.",
         entries: [
           {
             claim:
-              "Got rid of the county’s Net Profits Tax, the tax on business profits. Small businesses and people who work for themselves no longer pay it.",
+              "Eliminated the Net Profits Tax for Campbell County Businesses and Sole Proprietors.",
             figure: "$0",
             label: "Net Profits Tax",
             tier: "lead",
           },
           {
             claim:
-              "Down every year since 2020. Services grew in that time. They did not shrink.",
+              "Tom has voted to lower property tax rates since he has been in office.",
             figure: "17.80 → 15.30",
             label: "Property-tax rate, cents per $100",
             tier: "standard",
           },
           {
-            claim: "Reorganized how the county handles hiring and paychecks.",
+            claim:
+              "Saved the county $103,000 annually by voting to restructure the HR and Payroll Departments.",
             figure: "",
             label: "Saved annually",
             tier: "minor",
           },
           {
             claim:
-              "Built a new emergency radio system with Kenton and Boone Counties.",
+              "Tom voted to partner with Kenton and Boone Counties on a new emergency radio system saving the county over $2 million and improving overall public safety.",
             figure: "$2M+",
             label: "Saved for taxpayers",
             tier: "standard",
           },
           {
-            claim: "Dropped the dog license fee and moved sign-up online.",
+            claim:
+              "Voted to eliminate the county dog license fee and moved registration online.",
             figure: "",
             label: "Fee eliminated",
             tier: "minor",
           },
           {
-            claim: "Dropped the fees for park passes and horse trails.",
+            claim: "Eliminated park pass and horse trail fees.",
             figure: "",
             label: "Fees eliminated",
             tier: "minor",
@@ -360,44 +354,29 @@ export const copy = {
         slug: "efficient-government",
         navLabel: "Efficient Government",
         heading: "Smaller, More Efficient and Modern Government",
-        promise: "Better service without a bigger county payroll.",
         intro:
           "When the county needed to do more, Tom looked for a partner or a better system first. A bigger budget came last.",
         entries: [
           {
             claim:
-              "Paid for software that lets people file and pay county taxes online. No more standing in line or mailing a check.",
-            figure: "$500,000",
-            label: "Invested",
+              "Invested in online tax filing and payment making it easier for residents and businesses to pay their taxes.",
+            figure: "Invested in Online Tax Filing Software",
+            label: "",
             tier: "lead",
           },
           {
             claim:
-              "Changed how the county handles hiring and paychecks instead of hiring more staff.",
+              "Voted to restructure the county’s human resources and payroll department, saving $103,000 annually.",
             figure: "$103,000",
             label: "Saved annually",
             tier: "standard",
           },
           {
             claim:
-              "Teamed up with nearby counties on emergency radios. The county did not have to grow to do it.",
-            figure: "",
-            label: "Saved for taxpayers",
-            tier: "minor",
-          },
-          {
-            claim:
-              "Hired animal control officers. Nearby cities can use them at no extra cost.",
+              "Extended county animal-control services at no additional charge to 10 participating cities.",
             figure: "10 cities",
             label: "Served at no charge",
             tier: "standard",
-          },
-          {
-            claim:
-              "Moved dog registration online and dropped the fee that came with it.",
-            figure: "",
-            label: "Online now",
-            tier: "minor",
           },
         ],
       },
@@ -405,20 +384,19 @@ export const copy = {
         slug: "public-safety",
         navLabel: "First Responders",
         heading: "Strong First Responders. Safer Families.",
-        promise: "First responders with the right gear, who get there fast.",
         intro:
-          "Tom has worked to give first responders the gear, buildings and radios they need. Every part of the county counts.",
+          "Tom has worked to give Campbell County’s first responders the equipment, facilities and coordination they need to protect every community.",
         entries: [
           {
             claim:
-              "Replaced the old emergency radios. Now police, firefighters and paramedics can talk to each other.",
+              "Tom helped modernize emergency communications so police, fire and EMS can coordinate across community lines, improving public safety while saving Campbell County taxpayers millions.",
             figure: "$2M+",
-            label: "Saved while improving response",
+            label: "Saved while modernizing emergency communications software",
             tier: "lead",
           },
           {
             claim:
-              "Backed a new ambulance. Also backs the Fire Protection Association every year.",
+              "Tom voted to expand the police social-worker services throughout the county. Four social workers now work with officers to help families facing addiction, mental-health emergencies and other complex crises.",
             figure: "$210,000",
             label: "New ambulance",
             tier: "standard",
@@ -432,22 +410,22 @@ export const copy = {
           },
           {
             claim:
-              "Backed a plan for one new building. It would hold police, dispatch, emergency crews and the coroner.",
+              "Support for fire and emergency medical response. Tom has consistently voted to support firefighters, EMTs and emergency personnel through regional training, emergency equipment and coordinated response systems.",
             figure: "",
             label: "Public-safety facility",
             tier: "minor",
           },
           {
             claim:
-              "Backed training, gear and shared plans for fire and paramedic crews.",
+              "Tom voted to consolidate police, dispatch, emergency crews and the coroner into one centralized building to improve coordination and response.",
             figure: "",
             label: "Fire and EMS",
             tier: "minor",
           },
           {
             claim:
-              "Backed the county’s emergency management office. Also backs storm planning with nearby counties.",
-            figure: "StormReady",
+              "Tom supported bringing police, dispatch, emergency management and the coroner together in a modern public-safety facility designed to improve coordination and prepare Campbell County for the next generation of emergencies.",
+            figure: "Prepared the County for Emergencies",
             label: "National Weather Service designation",
             tier: "standard",
             kind: "designation",
@@ -458,9 +436,8 @@ export const copy = {
         slug: "opioid-response",
         navLabel: "Opioid Response",
         heading: "Turning the Corner on the Opioid Epidemic",
-        promise: "Fewer families burying someone.",
         intro:
-          "This may be the biggest change in daily life during Tom’s time in office. Most people do not connect it to county government. The county goes after traffickers and pays for real treatment and recovery at the same time.",
+          "Tom has made combating the opioid crisis a priority, supporting investments in law enforcement, crisis intervention, treatment and recovery. As a result, fatal overdoses fell from 54 in 2020 to just 10 in 2024. Real progress, more lives saved and fewer Campbell County families devastated by addiction.",
         entries: [
           {
             claim: "Fewer people in the county died of an overdose.",
@@ -484,14 +461,14 @@ export const copy = {
           },
           {
             claim:
-              "Went after dealers. Paid for treatment, recovery, police social workers and crisis teams at the same time.",
+              "Tom was recognized by the Northern Kentucky Hates Heroin task force for his work fighting the epidemic in Campbell County.",
             figure: "",
             label: "Treatment and recovery",
             tier: "minor",
           },
           {
             claim:
-              "Northern Kentucky Hates Heroin honored him for his work on the crisis.",
+              "Tom voted to provide more social workers in our police departments to deal with the root cause of addiction.",
             figure: "",
             label: "Recognition",
             tier: "minor",
@@ -502,15 +479,14 @@ export const copy = {
         slug: "roads",
         navLabel: "Roads & Bridges",
         heading: "Safe Roads. Connected Communities. Shared Prosperity.",
-        promise:
-          "Roads and bridges you can count on, paid for with outside money where we can.",
         intro:
-          "Tom has worked for safer roads and bridges across Campbell County. He brings state road money home so local taxpayers do not pay the whole bill.",
+          "Tom has worked to deliver safer roads, dependable bridges and responsible infrastructure investment throughout Campbell County.",
         entries: [
           {
-            claim: "New pavement every year on the roads people drive to work.",
-            figure: "10 miles",
-            label: "Resurfaced annually",
+            claim:
+              "Tom has worked with local, regional and state partners to support the new Fourth Street Bridge connecting Newport and Covington, one of Northern Kentucky’s most important infrastructure investments.",
+            figure: "$90 Million",
+            label: "Bridge Investment",
             tier: "lead",
           },
           {
@@ -536,20 +512,21 @@ export const copy = {
           },
           {
             claim:
-              "Takes care of the county’s roads. That means drainage, potholes, snow plowing and hillsides that slip.",
+              "Takes care of Route 536. Supports the fast track completion of 536 connector. That means drainage, potholes, snow plowing and hillsides that slip.",
             figure: "300",
             label: "Lane miles maintained",
             tier: "standard",
           },
           {
-            claim: "Keeps up the county’s bridges.",
-            figure: "124",
-            label: "Bridges maintained",
+            claim:
+              "Voted to maintain more than 300 miles of roads and 124 bridges, along with culverts, drainage, pothole repairs, snow removal, and hillside stabilization.",
+            figure: "",
+            label: "",
             tier: "standard",
           },
           {
             claim:
-              "Backed a public works crew the state has honored. They shore up hillsides and keep roads open.",
+              "Tom has supported Campbell County’s award-winning public-works team ensuring our roads and infrastructure are properly maintained.",
             figure: "",
             label: "Award-winning",
             tier: "minor",
@@ -560,21 +537,19 @@ export const copy = {
         slug: "every-community",
         navLabel: "Every Community",
         heading: "No Community Left Behind in Campbell County",
-        promise:
-          "Clean water, working internet and real services in every ZIP code.",
         intro:
           "Clean water. Working internet. Fast help in an emergency. Every part of the county should have them, from the river cities south into the farmland.",
         entries: [
           {
             claim:
-              "Voted to bring high-speed internet to every address in the county. Private companies do the work, so the county did not have to build it.",
+              "Backed countywide parks, recovery resources and professional services that smaller communities could not efficiently provide alone.",
             figure: "",
             label: "Fiber to every address point",
             tier: "minor",
           },
           {
             claim:
-              "Backed a partnership that ran public water to rural families. Federal and state money paid for it.",
+              "Tom supported a partnership with the Federal and State Governments to provide county water to nearly all rural families in Campbell County.",
             figure: "$5.5M",
             label: "Water partnership",
             tier: "lead",
@@ -588,21 +563,21 @@ export const copy = {
           },
           {
             claim:
-              "Almost everyone in Campbell County can now get clean public water. The county did not have to grow to do it.",
+              "Almost everyone in Campbell County can now get clean public water.",
             figure: "98%",
             label: "With public water access",
             tier: "standard",
           },
           {
             claim:
-              "Opened a third fill station for homes the water lines still do not reach.",
-            figure: "270",
-            label: "Households served",
+              "Tom voted to bring high-speed internet access to all of Campbell County by partnering with the private sector, not creating another government utility.",
+            figure: "100%",
+            label: "Of Campbell County has High Speed Internet Access",
             tier: "standard",
           },
           {
             claim:
-              "Let nearby cities use the county’s emergency radios and police social workers.",
+              "Tom supported interim solutions for families who remain beyond public water lines by opening a third public-water fill station to serve 270 unserved households.",
             figure: "",
             label: "Across city lines",
             tier: "minor",
@@ -612,37 +587,36 @@ export const copy = {
       {
         slug: "housing",
         navLabel: "Housing",
-        heading: "Innovative Solutions on Housing",
-        promise: "More ways to rent, own or stay in the town you already love.",
+        heading: "Innovative Solutions for Affordable Housing",
         intro:
-          "This will not fix the housing shortage overnight. It lays the groundwork for homes people can afford, and it does not take a bigger county payroll.",
+          "A vote for Tom means more opportunities to rent, own or remain in a home in Campbell County, whether you are starting a family, caring for an aging parent or hoping to stay in the community you already love.",
         entries: [
           {
             claim:
-              "Let people build a small second home on a large lot, for a parent, a grown child or a caregiver.",
+              "Tom supported this rehabilitation program that helps first-time and lower-income buyers own homes rather than creating permanent county-run housing.",
             figure: "",
-            label: "ADUs allowed",
+            label: "Promoted attainable homeownership",
             tier: "minor",
           },
           {
             claim:
-              "Backed asking for a federal Community Development Block Grant. That money fixes up run-down homes so families can buy them.",
+              "Tom supported $1M in Community Block Grant Funding to rehabilitate neglected properties for private homeownership while limiting the cost to county taxpayers.",
             figure: "$1M",
             label: "Sought in CDBG funding",
             tier: "standard",
           },
           {
             claim:
-              "Paid to train the local boards that decide what gets built.",
-            figure: "$20,000",
-            label: "Planning training",
+              "Tom supported accessory dwelling units on qualifying large lots, giving families more options for aging parents, adult children and caregivers while respecting property rights.",
+            figure: "",
+            label: "Expanded Housing Choices",
             tier: "standard",
           },
           {
             claim:
-              "Worked with cities to look at parking, setback and zoning rules that push up the cost of a home.",
+              "Tom supported reviewing parking, setback and zoning rules that can unnecessarily increase housing costs.",
             figure: "",
-            label: "Barriers reviewed",
+            label: "Reduced costly housing barriers",
             tier: "minor",
           },
           {
@@ -659,14 +633,12 @@ export const copy = {
         slug: "parks",
         navLabel: "Parks & Trails",
         heading: "Better Parks, More Trails, Stronger Connections",
-        promise:
-          "More ways to walk, bike, play and enjoy the county you live in.",
         intro:
-          "Tom is protecting the county’s parks and adding more ways to get outside, from A.J. Jolly Park to Riverfront Commons.",
+          "Tom is protecting Campbell County’s parks while creating more ways for residents to walk, bike, play and enjoy the outdoors.",
         entries: [
           {
             claim:
-              "Put money into A.J. Jolly Park, including the spillway and dredging the lake. That is safety work, not decoration.",
+              "Tom has supported major investments to preserve and improve A.J. Jolly Park, nearly 1,000 acres of lake, trails, campgrounds and green space available to every Campbell County family.",
             figure: "$10M",
             label: "A.J. Jolly investment",
             tier: "lead",
@@ -680,16 +652,16 @@ export const copy = {
           },
           {
             claim:
-              "Paid an expert to plan better hiking and mountain bike trails.",
+              "Tom supported a professional assessment to improve and expand A.J. Jolly’s hiking and off-road biking network, with the $25,000 planning cost reimbursed through outside funding.",
             figure: "$25,000",
             label: "Reimbursed by outside funding",
             tier: "standard",
           },
           {
             claim:
-              "Voted to move Riverfront Commons forward. It will link the river cities.",
+              "Tom voted to advance Riverfront Commons, a planned 20-mile pedestrian and bicycle corridor connecting Northern Kentucky’s river cities and extending toward Pendery Park.",
             figure: "20 miles",
-            label: "Planned corridor",
+            label: "of Riverfront Greenspace",
             tier: "standard",
           },
           {
@@ -701,14 +673,14 @@ export const copy = {
           },
           {
             claim:
-              "Made the county golf course pay for itself and kept improving it.",
+              "Tom has pursued state, federal and regional funding for trails, playgrounds and park improvements, expanding recreational opportunities without placing the full cost on county taxpayers.",
             figure: "",
             label: "Golf course",
             tier: "minor",
           },
           {
             claim:
-              "More people use Campbell County’s senior center than any other in the state.",
+              "Tom has consistently supported services that help Campbell County seniors stay active, connected and independent. The Campbell County Senior Center is the most utilized center in Kentucky.",
             figure: "#1",
             label: "In Kentucky",
             tier: "standard",
@@ -716,63 +688,17 @@ export const copy = {
         ],
       },
       {
-        slug: "economic-development",
-        navLabel: "Jobs",
-        heading: "Jobs Close to Home",
-        promise: "Work in Campbell County, not a commute out of it.",
-        intro:
-          "More jobs here means people can work near home. They do not have to drive to Cincinnati or another county.",
-        entries: [
-          {
-            claim: "Grew the industrial park in southern Campbell County.",
-            figure: "",
-            label: "Industrial park",
-            tier: "minor",
-          },
-          {
-            claim:
-              "Helped bring new jobs to Campbell County. New and expanding employers include Castellini, Jolly Enterprises, Legion Logistics, New Riff, Nexigen, PCA Architecture, PL Marketing and RWI.",
-            figure: "8",
-            label: "Employers",
-            tier: "lead",
-          },
-          {
-            claim:
-              "Went after employers that keep work close to home, so families spend less time driving.",
-            figure: "",
-            label: "Jobs near home",
-            tier: "minor",
-          },
-        ],
-      },
-      {
         slug: "open-government",
         navLabel: "Open Government",
         heading: "Open Government. Accountable Leadership.",
-        promise:
-          "A county government you can watch, understand and hold accountable.",
         intro:
-          "A vote for Tom means a county government you can look into, including his own record.",
+          "A vote for Tom means a county government you can see, understand and hold accountable.",
         entries: [
-          {
-            claim:
-              "The county put its income, spending and payments to vendors online through OpenGov.",
-            figure: "",
-            label: "OpenGov",
-            tier: "minor",
-          },
           {
             claim:
               "The county posts agendas, minutes, ordinances, budgets and audits online. It also posts how each commissioner voted.",
             figure: "",
             label: "Public record",
-            tier: "minor",
-          },
-          {
-            claim:
-              "Fiscal Court meetings are announced ahead of time, streamed live and saved so you can watch later.",
-            figure: "",
-            label: "Meetings",
             tier: "minor",
           },
           {
@@ -784,9 +710,9 @@ export const copy = {
           },
           {
             claim:
-              "Changing how the county handles hiring and paychecks saved real money.",
-            figure: "$103,000",
-            label: "Saved annually",
+              "All Fiscal Court meetings are announced in advance, streamed live, and saved for citizen review.",
+            figure: "",
+            label: "All Meetings Are Online",
             tier: "standard",
           },
           /**
@@ -800,19 +726,13 @@ export const copy = {
            * than quietly disappearing.
            */
           {
-            claim: "{{OPEN_GOV_CLAIM}}",
+            claim:
+              "All of the County’s expenses, vendor payments, revenues, etc. can be reviewed on the County’s website.",
             /* Short on purpose: a figure slot is 36px display type, and a long
                unbreakable placeholder overflows the grid track. */
-            figure: "{{TBD}}",
-            label: "{{OPEN_GOV_LABEL}}",
-            tier: "standard",
-          },
-          {
-            claim:
-              "The county shares emergency radios with nearby counties. That saved money and made them work better.",
             figure: "",
-            label: "Saved for taxpayers",
-            tier: "minor",
+            label: "Transparent Financials",
+            tier: "standard",
           },
         ],
       },
@@ -834,7 +754,8 @@ export const copy = {
     heading: "Funded by neighbors.",
     lead: "No corporate machine. No money from out of state. Every dollar goes to talking with Campbell County voters between now and November 3.",
     asideHeading: "Where it goes",
-    asideBody: "Door hangers, yard signs, mailings and digital ads. That is the whole list. This is a county race, and it is won by talking to people.",
+    asideBody:
+      "Door hangers, yard signs, mailings and digital ads. That is the whole list. This is a county race, and it is won by talking to people.",
     /** PRE-LAUNCH VERIFY: Kentucky contribution disclosure, lawyer to supply. */
     disclosure: "{{CONTRIBUTION_DISCLOSURE}}",
   },
@@ -849,7 +770,8 @@ export const copy = {
     heading: "The team is the people who pay for it.",
     lead: "This campaign runs on small gifts from Campbell County neighbors. Chip in and you are on the team.",
     asideHeading: "Not ready to give?",
-    asideBody: "Add your name instead. We will keep you posted between now and Election Day, and let you know when we need help.",
+    asideBody:
+      "Add your name instead. We will keep you posted between now and Election Day, and let you know when we need help.",
     /** PRE-LAUNCH VERIFY: Kentucky contribution disclosure, lawyer to supply. */
     disclosure: "{{CONTRIBUTION_DISCLOSURE}}",
   },

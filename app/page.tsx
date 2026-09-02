@@ -56,7 +56,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="relative h-64 w-full overflow-hidden sm:h-80 lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-[var(--hero-image-width)] lg:[clip-path:var(--hero-clip)]">
+        <div className="relative h-64 w-full overflow-hidden sm:h-80 lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-[var(--hero-image-width-home)] lg:[clip-path:var(--hero-clip)]">
           <Image
             src="/tom-lampe-parade.webp"
             alt={H.hero.imageAlt}

@@ -42,7 +42,9 @@ export function RecordGrid({
       {lead && (
         <Reveal as="li" className="record-lead">
           <div>
-            <p className="record-lead-figure">{lead.figure}</p>
+            <p className="record-lead-figure" data-size={lead.figureSize}>
+              {lead.figure}
+            </p>
             <p className="t-label record-lead-label">{lead.label}</p>
           </div>
           <p className="record-lead-claim">{lead.claim}</p>
@@ -57,7 +59,9 @@ export function RecordGrid({
           className="record-standard"
           data-kind={entry.kind}
         >
-          <p className="record-figure">{entry.figure}</p>
+          <p className="record-figure" data-size={entry.figureSize}>
+            {entry.figure}
+          </p>
           <p className="t-label record-label">{entry.label}</p>
           <p className="record-claim">{entry.claim}</p>
         </Reveal>

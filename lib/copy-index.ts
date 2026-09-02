@@ -115,7 +115,7 @@ const RULES: Rule[] = [
     pageOrder: 1,
     section: "Hero",
     sectionOrder: 1,
-    hint: copy.home.hero.headlineLines[0],
+    hint: copy.home.hero.headlineLines.join(" "),
   },
   {
     match: /^home\.join\./,
@@ -177,7 +177,7 @@ const RULES: Rule[] = [
     pageOrder: 2,
     section: "Hero",
     sectionOrder: 1,
-    hint: copy.meetTom.hero.heading,
+    hint: copy.meetTom.hero.headlineLines.join(" "),
   },
   {
     match: /^meetTom\.bio\./,
@@ -186,19 +186,6 @@ const RULES: Rule[] = [
     section: "Biography",
     sectionOrder: 2,
     hint: copy.meetTom.bio.heading,
-  },
-  {
-    // service and serviceEntries are one section on the page
-    match: /^meetTom\.(service\.|serviceEntries)/,
-    page: "Meet Tom",
-    pageOrder: 2,
-    section: "Service block",
-    sectionOrder: 3,
-    hint: copy.meetTom.service.heading,
-    ...grid(
-      () => copy.meetTom.serviceEntries,
-      [/service\.heading$/, /service\.lead$/],
-    ),
   },
   {
     match: /^meetTom\.roots\./,
@@ -231,7 +218,7 @@ const RULES: Rule[] = [
     pageOrder: 3,
     section: "Hero",
     sectionOrder: 1,
-    hint: copy.record.hero.heading,
+    hint: copy.record.hero.headlineLines.join(" "),
   },
   {
     match: /^record\.(jumpNavHeading|themeEyebrow)/,

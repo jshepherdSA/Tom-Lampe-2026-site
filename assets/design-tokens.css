@@ -44,6 +44,11 @@
   --size-display-min: 25px;
   --size-h1: 44px;
   --size-h1-m: 30px;
+  /* Floor for the fitted h1. 22px, not the display headline's 25px: at 25px
+     the record hero's longest phrase needs a 351px column, which a 390px
+     phone does not have, and the whole point of the fitted h1 is that the
+     phrase holds one line. 22px keeps it on one line down to a 360px screen. */
+  --size-h1-min: 22px;
   --size-h2: 34px;
   --size-h2-m: 26px;
   --size-h3: 22px;
@@ -62,6 +67,8 @@
   /* record grid: lead figure. Its own token so the lead can move without
      dragging every --size-stat on the site with it. */
   --size-record-lead: 56px;
+  /* a phrase in the lead slot, not a quantity */
+  --size-record-lead-phrase: var(--size-h2);
   --size-record-standard: 36px;
   --size-record-minor: 17px;
   --size-banner: 16px;
@@ -155,6 +162,14 @@
      run into the column's right padding (lg:-mr-s6 on the h1), so it can
      take a larger share of the column than the stacked layout can. */
   --display-fit-lg: 8.8cqi;
+  /* Same idea for an h1 that must also break exactly where the copy breaks
+     it. 7% of the column is the largest size at which the record hero's
+     longest phrase ("A Stronger Campbell County.") still sets on one line:
+     it measures 1404px at 100px, so it needs 39.8px in a 559px column and
+     33.3px in a 467px one, and both are 7.1% of the column. One ratio, no
+     breakpoints, and no -mr on this h1 so it takes a smaller share than the
+     home headline does. */
+  --h1-fit: 7cqi;
 
   --nav-font-size: var(--size-nav);
   --bullet-size: var(--size-bullet);
@@ -169,12 +184,17 @@
      scattered through the components. */
   --hero-copy-width: 52%;
   --hero-image-width: 44%;
+  /* The home photograph is the only hero with two people in it. It gets a
+     wider column so both stay in frame: object-fit: cover crops on the long
+     axis, and the section's height is set by the copy, so the column's width
+     is the only lever on how much of the picture survives. */
+  --hero-image-width-home: 46%;
   --hero-min-height: 68svh;
   /* the diagonal that cuts the photograph away from the copy */
   --hero-clip: polygon(0 0, 100% 0, 100% 100%, 14% 100%);
 
   /* object-position, tuned per photograph against its crop */
-  --pos-hero-home: 50% 42%;
+  --pos-hero-home: 28% 42%;
   --pos-hero-record: 51% 12%;
   --pos-hero-meet: 50% 10%;
 

@@ -108,7 +108,24 @@
       "lnum" 1;
   }
 
+  /* Selection has to be visible on both grounds. The default highlight is
+     Lampe Indigo, which is exactly the colour of every inverse band and of
+     the record page's lead tile, so a reader dragging across those would see
+     nothing change and conclude the words were baked into an image. Flip the
+     highlight wherever the ground is already indigo. The lead tile carries
+     its own ground and inverts with the grid's tone, so it appears on both
+     sides; its selector is more specific than the band's and wins inside it. */
   ::selection {
+    background: var(--color-bg-inverse);
+    color: var(--white);
+  }
+  .bg-inverse ::selection,
+  .bg-inverse-deep ::selection,
+  .record-grid[data-tone="light"] .record-lead ::selection {
+    background: var(--white);
+    color: var(--color-bg-inverse);
+  }
+  .record-grid[data-tone="dark"] .record-lead ::selection {
     background: var(--color-bg-inverse);
     color: var(--white);
   }
@@ -262,6 +279,11 @@
       var(--size-display)
     );
   }
+  /* The record headline breaks by sentence too, at h1 rather than display
+     size, and with no right overhang to borrow. */
+  .t-h1-fit {
+    font-size: clamp(var(--size-h1-min), var(--h1-fit), var(--size-h1));
+  }
   .fit-container {
     container-type: inline-size;
   }
@@ -360,6 +382,13 @@
     font-variant-numeric: tabular-nums lining-nums;
     overflow-wrap: normal;
     color: var(--record-lead-figure-color);
+  }
+  /* Words in a slot sized for a number. Same move as kind="designation",
+     which drops a named distinction a step for the same reason. */
+  .record-lead-figure[data-size="phrase"],
+  .record-figure[data-size="phrase"] {
+    font-size: var(--size-record-lead-phrase);
+    line-height: var(--lh-h2);
   }
   .record-lead-label {
     margin-top: var(--space-2);

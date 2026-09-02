@@ -25,6 +25,13 @@ export type RecordEntry = {
   claim: string;
   /** Figure. Empty for a minor entry. */
   figure: string;
+  /**
+   * The figure slot normally holds a quantity, set at display size. Set this
+   * when it holds a phrase instead, so words are typeset at heading size and
+   * do not run to four lines. Same idea as `kind: "designation"`, which drops
+   * a named distinction one step for the same reason.
+   */
+  figureSize?: "phrase";
   /** Short noun phrase naming the metric. */
   label: string;
   tier: EntryTier;
@@ -203,66 +210,19 @@ export const copy = {
     },
     hero: {
       eyebrow: "Meet Tom",
-      heading: "A neighbor who would rather you judge him on results.",
-      lead: "Tom Lampe is a lifelong Campbell County resident, local businessman and fiscal conservative who believes the government must earn the public’s trust.",
+      /** One phrase per line. Rendered as <span className="block">. */
+      headlineLines: ["A Neighbor.", "A Leader.", "A Proven Public Servant."],
+      lead: "Campbell County has always been home for Tom. A lifelong resident with deep roots in the community, Tom’s commitment to family, faith and service has shaped both the life he’s built here and his approach to serving his neighbors.",
       imageAlt: "Tom Lampe at home with his wife and their three sons.",
     },
     /** Long-form biography. Each paragraph traces to the messaging documents. */
     bio: {
-      heading: "Thirty years reading budgets before he ever voted on one.",
+      heading: "Building a Stronger Campbell County for the Next Generation",
       paragraphs: [
-        "Before he ran for office, Tom spent more than 30 years in business. Reading budgets and financial statements was his job. He brought that habit to the Fiscal Court. He treats the county budget as your money, not the county’s.",
-        "He watches every dollar. He has cut tax rates, dropped fees the county did not need, pushed for services that cost less to run, and protected the things that keep Campbell County safe and growing. He thinks the county should take no more than it needs, so families and businesses keep more of what they earn.",
-        "You can see that in how he solves problems. The county needed new emergency radios. He worked with Kenton and Boone Counties instead of building our own. Rural families needed water and internet. He backed partnerships that brought in federal, state and private money, so the county did not have to start a new utility.",
+        "Tom Lampe believes Campbell County should be a place where families can put down roots, businesses can grow, and residents can enjoy a high quality of life without being burdened by higher taxes or unnecessary government. His approach is grounded in conservative values, fiscal responsibility, limited government, and making practical investments that deliver results for the people he serves.",
+        "As Commissioner, Tom has focused on the things that affect residents every day: safe communities, dependable infrastructure, strong parks and public spaces, economic opportunity, and responsible management of taxpayer dollars. He believes progress and fiscal discipline can go hand in hand: improving Campbell County today while protecting the character, affordability, and quality of life that make it a great place to call home.",
       ],
     },
-    service: {
-      heading: "Service",
-      lead: "Elected office, board service and the work he did before that.",
-    },
-    /** figure "" renders the empty-evidence case: the rule still draws. */
-    serviceEntries: [
-      {
-        claim:
-          "He sits on the Fiscal Court, the group that runs county government.",
-        figure: "Since 2014",
-        label: "County Commissioner",
-        tier: "lead",
-      },
-      {
-        claim:
-          "He served Fort Thomas on City Council before he joined the Fiscal Court.",
-        figure: "6 terms",
-        label: "Fort Thomas City Council",
-        tier: "standard",
-      },
-      {
-        claim: "He read budgets and company financial statements for a living.",
-        figure: "30+ years",
-        label: "Before public office",
-        tier: "standard",
-      },
-      {
-        claim: "He has served on the St. Elizabeth Foundation Board for years.",
-        figure: "",
-        label: "St. Elizabeth Foundation",
-        tier: "minor",
-      },
-      {
-        claim:
-          "He sits on the board of the Northern Kentucky Area Development District.",
-        figure: "",
-        label: "NKY Area Development District",
-        tier: "minor",
-      },
-      {
-        claim:
-          "Northern Kentucky Hates Heroin honored him for his work on the opioid crisis.",
-        figure: "",
-        label: "Recognition",
-        tier: "minor",
-      },
-    ] as RecordEntry[],
     roots: {
       eyebrow: "Home",
       heading: "Campbell County, all of it.",
@@ -271,8 +231,8 @@ export const copy = {
         "Tom Lampe stands with neighbors, parents and children in Tom Lampe T-shirts. They are next to a Keep Tom Lampe sign at a Campbell County parade.",
     },
     close: {
-      heading: "See what that adds up to.",
-      body: "Tax rates down every year since 2020. More than $2 million saved on emergency radios. Fatal overdoses down from 54 a year to 10.",
+      heading: "View Tom’s Records",
+      body: "Everyone can say they are a fiscal conservative who wants to improve the quality of life. Tom has a proven track record of doing so.",
       cta: "See the full record",
       secondaryCta: "Donate",
     },
@@ -287,7 +247,12 @@ export const copy = {
     },
     hero: {
       eyebrow: "The Record",
-      heading: "Lower Taxes. Better Services. A Stronger Campbell County.",
+      /** One phrase per line. Rendered as <span className="block">. */
+      headlineLines: [
+        "Lower Taxes.",
+        "Better Services.",
+        "A Stronger Campbell County.",
+      ],
       lead: "Tom Lampe has proven that improving quality of life doesn’t have to mean asking taxpayers for more. While tax rates and fees have declined, Tom has helped deliver major investments in roads, high-speed internet, clean water, public safety, parks and economic development. His approach is simple: spend taxpayer dollars responsibly, invest in the services that matter most, and keep Campbell County a safe, affordable and thriving place to live, work and raise a family.",
       imageAlt:
         "Tom Lampe in a charcoal suit and patterned tie, photographed in 2026.",
@@ -361,6 +326,7 @@ export const copy = {
             claim:
               "Invested in online tax filing and payment making it easier for residents and businesses to pay their taxes.",
             figure: "Invested in Online Tax Filing Software",
+            figureSize: "phrase",
             label: "",
             tier: "lead",
           },

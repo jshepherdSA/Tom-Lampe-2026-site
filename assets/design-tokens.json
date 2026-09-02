@@ -172,6 +172,11 @@
         "$value": "56px",
         "$type": "dimension"
       },
+      "record-lead-phrase": {
+        "$value": "{typography.size.h2}",
+        "$type": "dimension",
+        "$description": "lead figure slot when it holds a phrase rather than a quantity"
+      },
       "record-standard": {
         "$value": "36px",
         "$type": "dimension"
@@ -531,6 +536,11 @@
       "hero-image-width": {
         "$value": "44%",
         "$type": "dimension"
+      },
+      "hero-image-width-home": {
+        "$value": "46%",
+        "$type": "dimension",
+        "$description": "wider column for the one hero photograph with two people in it"
       },
       "hero-min-height": {
         "$value": "68svh",

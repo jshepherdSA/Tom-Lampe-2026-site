@@ -23,10 +23,14 @@ export default function RecordPage() {
         className="relative flex flex-col overflow-hidden bg-inverse lg:flex-row lg:items-center"
       >
         <div className="container-page relative z-10 w-full shrink-0 py-s7">
-          <div className="lg:w-[var(--hero-copy-width)] lg:pr-s6">
+          <div className="fit-container lg:w-[var(--hero-copy-width)] lg:pr-s6">
             <p className="t-label text-on-inverse">{R.hero.eyebrow}</p>
-            <h1 id="record-h" className="t-h1 mt-s3 text-on-inverse">
-              {R.hero.heading}
+            <h1 id="record-h" className="t-h1 t-h1-fit mt-s3 text-on-inverse">
+              {R.hero.headlineLines.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
             </h1>
             <p className="t-lead measure mt-s5 text-muted-on-inverse">
               {R.hero.lead}

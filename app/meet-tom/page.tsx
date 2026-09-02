@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { RecordGrid } from "@/components/record-grid";
 import { copy } from "@/content/copy";
 import { HALF_IMAGE_SIZES, HERO_IMAGE_SIZES } from "@/lib/tokens";
 
@@ -22,10 +21,14 @@ export default function MeetTomPage() {
         className="relative flex flex-col overflow-hidden bg-inverse lg:flex-row lg:items-center"
       >
         <div className="container-page relative z-10 w-full shrink-0 py-s7">
-          <div className="lg:w-[var(--hero-copy-width)] lg:pr-s6">
+          <div className="fit-container lg:w-[var(--hero-copy-width)] lg:pr-s6">
             <p className="t-label text-on-inverse">{M.hero.eyebrow}</p>
-            <h1 id="meet-h" className="t-h1 mt-s3 text-on-inverse">
-              {M.hero.heading}
+            <h1 id="meet-h" className="t-h1 t-h1-fit mt-s3 text-on-inverse">
+              {M.hero.headlineLines.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
             </h1>
             <p className="t-lead measure mt-s5 text-muted-on-inverse">
               {M.hero.lead}
@@ -58,27 +61,6 @@ export default function MeetTomPage() {
               </p>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* service: credentials as a marked list, durations as a stat column.
-          Three of the six entries carry no figure, so the stat column holds
-          only the quantified ones rather than printing empty tiles. */}
-      <section aria-labelledby="service-h" className="bg-inverse-deep">
-        <div className="container-page py-s8">
-          <h2 id="service-h" className="t-h2 measure text-on-inverse">
-            {M.service.heading}
-          </h2>
-          <p className="measure mt-s3 text-muted-on-inverse">
-            {M.service.lead}
-          </p>
-
-          <RecordGrid
-            entries={M.serviceEntries}
-            tone="dark"
-            className="mt-s6"
-            aria-label={M.service.heading}
-          />
         </div>
       </section>
 

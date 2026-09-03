@@ -67,6 +67,8 @@
   /* record grid: lead figure. Its own token so the lead can move without
      dragging every --size-stat on the site with it. */
   --size-record-lead: 56px;
+  /* below 1024 the tile cannot hold a 56px range and a readable claim */
+  --size-record-lead-m: 36px;
   /* a phrase in the lead slot, not a quantity */
   --size-record-lead-phrase: var(--size-h2);
   --size-record-standard: 36px;

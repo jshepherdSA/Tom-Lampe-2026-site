@@ -375,7 +375,7 @@
   }
   .record-lead-figure {
     font-family: var(--font-display);
-    font-size: var(--size-record-lead);
+    font-size: var(--size-record-lead-m);
     line-height: var(--lh-stat);
     letter-spacing: var(--ls-stat);
     font-weight: var(--weight-extrabold);
@@ -383,6 +383,30 @@
     overflow-wrap: normal;
     color: var(--record-lead-figure-color);
   }
+  /* A figure is one value. "17.80 -> 15.30", "54 -> 10" and "$90 Million"
+     all carry a space, and a broken figure reads as two numbers stacked, so
+     no quantity may wrap. The lead's figure track grows to hold one (see the
+     640 block); below 768 the figure steps down instead, because a one
+     column tile on a phone has no track to grow into. */
+  .record-lead-figure,
+  .record-figure {
+    white-space: nowrap;
+  }
+  /* A phrase and a designation are words, not quantities. They wrap. */
+  .record-lead-figure[data-size="phrase"],
+  .record-figure[data-size="phrase"],
+  .record-standard[data-kind="designation"] .record-figure {
+    white-space: normal;
+  }
+  /* 1024, not the type scale's usual 768: the step is driven by the tile,
+     not the viewport. A 56px range needs 380px of the tile, and only from
+     1024 up is what remains a readable column for the claim beside it. */
+  @media (min-width: 1024px) {
+    .record-lead-figure {
+      font-size: var(--size-record-lead);
+    }
+  }
+
   /* Words in a slot sized for a number. Same move as kind="designation",
      which drops a named distinction a step for the same reason. */
   .record-lead-figure[data-size="phrase"],
@@ -469,8 +493,11 @@
     .record-strip {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+    /* min-content, not 0: a figure that cannot wrap widens its own track
+       rather than spilling across the claim. Figures narrower than a third
+       of the tile leave the split exactly where it was. */
     .record-lead {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+      grid-template-columns: minmax(min-content, 1fr) minmax(0, 2fr);
     }
   }
   @media (min-width: 1100px) {

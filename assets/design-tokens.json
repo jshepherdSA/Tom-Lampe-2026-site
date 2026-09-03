@@ -172,6 +172,11 @@
         "$value": "56px",
         "$type": "dimension"
       },
+      "record-lead-mobile": {
+        "$value": "36px",
+        "$type": "dimension",
+        "$description": "lead figure below 1024, where the tile cannot hold a 56px range and a readable claim"
+      },
       "record-lead-phrase": {
         "$value": "{typography.size.h2}",
         "$type": "dimension",

@@ -1,109 +1,91 @@
-"use client";
-
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { buttonVariants } from "@/components/ui/button";
 import { copy } from "@/content/copy";
 import { cn } from "@/lib/utils";
 
 const D = copy.home.donate;
 
+/**
+ * WinRed's source code. It tells the campaign a contribution came from the
+ * website rather than a mailer, a text or a door knock, so it is a constant
+ * of this component rather than editable copy.
+ */
+const SOURCE_CODE = "website";
+
+/**
+ * A preset amount, or the base page when the amount is left to the donor.
+ * Order matters: WinRed's own links read `?amount=50&sc=website`.
+ */
+function donateHref(amount?: number) {
+  const params = new URLSearchParams();
+  if (amount) params.set("amount", String(amount));
+  params.set("sc", SOURCE_CODE);
+  return `${D.processorUrl}?${params.toString()}`;
+}
+
+/**
+ * Amounts, as links out to WinRed.
+ *
+ * The campaign does not process contributions. Every control here is a plain
+ * anchor to WinRed's own form, so no card number, address or donor name is
+ * ever typed on this site, and there is nothing here to submit, validate or
+ * store. That is also why this is a server component with no state: the whole
+ * module ships as markup and no JavaScript.
+ *
+ * These borrow `buttonVariants` rather than the `Button` component. Button is
+ * Base UI's, which stamps role="button" on whatever it renders, and a control
+ * that navigates to another site is a link. Sharing the variants keeps the
+ * fill, size, radius, focus ring and touch target identical to every other
+ * campaign button while the semantics stay honest.
+ *
+ * The variants must go through `cn`. Its tailwind-merge drops the base
+ * `border border-transparent` when a variant sets a border colour; without it
+ * the transparent rule wins on stylesheet order and an outline button renders
+ * with no visible outline at all. `Button` does the same thing internally.
+ *
+ * Links open in the same tab. A donor sent to a payment form in a new window
+ * loses the trail back, and the note below says where they are going before
+ * they get there.
+ *
+ * `tone` changes colour only, for the module sitting on an inverse band.
+ */
 export function DonateModule({ tone = "dark" }: { tone?: "dark" | "light" }) {
-  const [selected, setSelected] = useState<number | "other">(
-    D.levels[1].amount,
-  );
-  const [other, setOther] = useState("");
-
-  const amount = selected === "other" ? Number(other) || 0 : selected;
-  const note =
-    selected === "other"
-      ? ""
-      : D.levels.find((l) => l.amount === selected)?.note;
-
-  const chip = (active: boolean) =>
-    cn(
-      "t-h3 flex min-h-11 items-center justify-center border-2 px-s2 py-s3 whitespace-nowrap transition-colors",
-      active
-        ? "border-signal-deep bg-signal-deep text-on-signal"
-        : tone === "dark"
-          ? "border-rule text-on-inverse hover:border-marker"
-          : "border-hairline bg-surface text-heading hover:border-inverse",
-    );
+  const onDark = tone === "dark";
+  const quiet = onDark ? "text-muted-on-inverse" : "text-ink-muted";
 
   return (
     <div className="flex flex-col gap-s5">
-      <div
-        role="group"
-        aria-label={D.heading}
-        className="grid grid-cols-3 gap-s2 sm:grid-cols-4 xl:grid-cols-7"
-      >
+      <ul aria-label={D.heading} className="grid gap-s4 sm:grid-cols-3">
         {D.levels.map((level) => (
-          <button
-            key={level.amount}
-            type="button"
-            aria-pressed={selected === level.amount}
-            onClick={() => setSelected(level.amount)}
-            className={chip(selected === level.amount)}
-          >
-            ${level.amount.toLocaleString()}
-          </button>
+          <li key={level.amount} className="flex flex-col gap-s2">
+            <a
+              href={donateHref(level.amount)}
+              aria-label={`Donate $${level.amount.toLocaleString()}`}
+              className={cn(
+                buttonVariants({ variant: "donate", size: "cta-lg" }),
+                "w-full",
+              )}
+            >
+              ${level.amount.toLocaleString()}
+            </a>
+            <p className={cn("t-small", quiet)}>{level.note}</p>
+          </li>
         ))}
-        <button
-          type="button"
-          aria-pressed={selected === "other"}
-          onClick={() => setSelected("other")}
-          className={chip(selected === "other")}
-        >
-          {D.otherLabel}
-        </button>
-      </div>
+      </ul>
 
-      {selected === "other" && (
-        <div className="flex max-w-xs flex-col gap-s2">
-          <Label
-            htmlFor="other-amount"
-            className={cn(
-              "t-label",
-              tone === "dark" ? "text-on-inverse" : "text-heading",
-            )}
-          >
-            {D.otherFieldLabel}
-          </Label>
-          <Input
-            id="other-amount"
-            inputMode="decimal"
-            value={other}
-            onChange={(e) => setOther(e.target.value.replace(/[^0-9.]/g, ""))}
-            className="min-h-11 rounded-none border-hairline bg-surface text-body"
-            spellCheck={false}
-            aria-describedby="other-amount-hint"
-          />
-          <p id="other-amount-hint" className="t-small text-ink-muted">
-            {copy.forms.validation.amount}
-          </p>
-        </div>
-      )}
-
-      <p
-        aria-live="polite"
+      <a
+        href={donateHref()}
         className={cn(
-          "min-h-s5",
-          tone === "dark" ? "text-muted-on-inverse" : "text-ink-muted",
+          buttonVariants({
+            variant: onDark ? "outlineInverse" : "outline2",
+            size: "cta-lg",
+          }),
+          "self-start",
         )}
       >
-        {note}
-      </p>
+        {D.otherLabel}
+      </a>
 
-      <Button
-        variant="donate"
-        size="cta-lg"
-        className="self-start"
-        render={<a href={D.processorUrl} />}
-      >
-        {D.submit}
-        {amount > 0 ? ` $${amount.toLocaleString()}` : ""}
-      </Button>
+      <p className={cn("t-small measure", quiet)}>{D.processorNote}</p>
     </div>
   );
 }

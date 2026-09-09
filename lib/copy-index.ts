@@ -139,8 +139,7 @@ const RULES: Rule[] = [
       /donate\.body$/,
       /donate\.levels\[\d+\]\.note$/,
       /donate\.otherLabel$/,
-      /donate\.otherFieldLabel$/,
-      /donate\.submit$/,
+      /donate\.processorNote$/,
       /donate\.processorUrl$/,
     ],
   },
@@ -373,13 +372,6 @@ const RULES: Rule[] = [
     sectionOrder: 5,
   },
   {
-    match: /^global\.(email|emailLabel)$/,
-    page: "Every page",
-    pageOrder: 6,
-    section: "Footer",
-    sectionOrder: 5,
-  },
-  {
     match: /^footer\.columns\[/,
     page: "Every page",
     pageOrder: 6,
@@ -439,8 +431,6 @@ const RULES: Rule[] = [
 const FOOTER_FIELD_ORDER = [
   /^footer\.tagline$/,
   /^social\[/,
-  /^global\.emailLabel$/,
-  /^global\.email$/,
   /^footer\.columns\[/,
   /^global\.committeeName$/,
   /^footer\.copyright$/,
@@ -474,8 +464,8 @@ const ROLE_NAMES: Record<string, string> = {
   asideHeading: "Side heading",
   asideBody: "Side body text",
   otherLabel: "Other-amount button",
-  otherFieldLabel: "Other-amount field label",
-  processorUrl: "Donation processor link",
+  processorUrl: "WinRed donation page (changes where the money goes)",
+  processorNote: "Note under the amounts",
   involvementLegend: "Checklist heading",
   jumpNavHeading: "Jump-links heading",
   themeEyebrow: "Small label above every theme",
@@ -483,7 +473,6 @@ const ROLE_NAMES: Record<string, string> = {
   electionDayLabel: "Banner label",
   electionDate: "Banner date",
   committeeName: "Committee name (legally required)",
-  emailLabel: "Email shown in the footer",
   donate: "Donate button",
   ogTitle: "Social-share title",
   ogDescription: "Social-share description",
@@ -498,7 +487,6 @@ const ROLE_NAMES: Record<string, string> = {
   candidateName: "Candidate name",
   office: "Office sought",
   tenureStart: "Year first elected",
-  email: "Email address it links to",
 };
 
 const titleCase = (k: string) =>

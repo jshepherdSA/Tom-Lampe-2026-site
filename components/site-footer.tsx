@@ -9,17 +9,14 @@ export function SiteFooter() {
       <div className="container-page py-s8">
         <div className="grid gap-s7 md:grid-cols-2 lg:grid-cols-[var(--split-footer)]">
           <div>
-            <BrandMark tone="light" className="w-[var(--brand-mark-width-lg)]" />
+            <BrandMark
+              tone="light"
+              className="w-[var(--brand-mark-width-lg)]"
+            />
             <p className="measure mt-s5 text-on-inverse">
               {copy.footer.tagline}
             </p>
             <SocialLinks tone="dark" className="mt-s4" />
-            <a
-              href={`mailto:${copy.global.email}`}
-              className="t-small mt-s4 inline-flex min-h-11 items-center text-muted-on-inverse underline underline-offset-4"
-            >
-              {copy.global.emailLabel}
-            </a>
           </div>
 
           {copy.footer.columns.map((col) => (

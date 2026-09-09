@@ -62,7 +62,7 @@ export const copy = {
     siteTitle: "Tom Lampe for Campbell County Commissioner",
     titleTemplate: "%s | Tom Lampe for Campbell County Commissioner",
     description:
-      "Tom Lampe has lived in Campbell County his whole life. He runs a local business and watches how the county spends your money. Tax rates are down every year since 2020. The county saved more than $2 million for taxpayers and built up its emergency services.",
+      "Tom Lampe has lived in Campbell County his whole life. He watches how the county spends your money. Tax rates are down every year since 2020. The county saved more than $2 million for taxpayers and built up its emergency services.",
     ogTitle: "Proven Results. Taxpayer Accountability. Campbell County First.",
     ogDescription:
       "Tom brings experience. He would rather you judge him on results.",
@@ -78,9 +78,7 @@ export const copy = {
     /** PRE-LAUNCH VERIFY: low confidence. Single source of truth. */
     tenureStart: "2014",
     /** KRS 121.190. Name only. Never below 14px, never reduced opacity. */
-    committeeName: "{{COMMITTEE_NAME}}",
-    email: "{{CONTACT_EMAIL}}",
-    emailLabel: "{{CONTACT_EMAIL_LABEL}}",
+    committeeName: "Lampe for County Commissioner",
   },
 
   nav: {
@@ -127,26 +125,27 @@ export const copy = {
       eyebrow: "Chip in",
       heading: "Funded by neighbors.",
       body: "Let’s keep Campbell County moving forward. Support Tom Lampe with a donation today and your vote on November 3.",
-      submit: "Contribute",
-      otherLabel: "Other",
-      otherFieldLabel: "Enter an amount",
+      otherLabel: "Other Amount",
       /** amount is structure; note is copy. */
       levels: [
-        {
-          amount: 25,
-          note: "Prints a stack of door hangers for one precinct.",
-        },
         { amount: 50, note: "Puts yard signs on a neighborhood block." },
         { amount: 100, note: "Covers a week of mailings to undecided voters." },
         {
           amount: 250,
           note: "Funds a digital ad run across the river cities.",
         },
-        { amount: 500, note: "Underwrites a countywide literature drop." },
-        { amount: 1000, note: "Backs a full week of voter contact." },
       ],
-      /** PRE-LAUNCH VERIFY: processor URL. */
-      processorUrl: "{{DONATE_PROCESSOR_URL}}",
+      /**
+       * WinRed takes the contribution. Every amount button links here with
+       * `amount` and `sc` appended, so no card or donor detail is ever typed
+       * on this site. Changing this changes where the money goes: it is the
+       * campaign's own WinRed page and should not be edited casually.
+       */
+      processorUrl:
+        "https://secure.winred.com/lampe-for-county-commissioner/donate-today",
+      /** NEW COPY, needs the campaign's approval. Says where a donor lands. */
+      processorNote:
+        "Contributions are processed securely by WinRed. You will finish your donation there.",
     },
     proof: {
       heading: "Experience, measured by results",
@@ -162,7 +161,7 @@ export const copy = {
         {
           claim:
             "Built a new emergency radio system with Kenton and Boone Counties. The county did not have to grow to do it.",
-          figure: "$2M+",
+          figure: "$3.4M",
           label: "Saved for taxpayers",
           tier: "standard",
         },
@@ -190,7 +189,7 @@ export const copy = {
         {
           href: "/meet-tom",
           title: "Meet Tom",
-          body: "He has lived here his whole life. He runs a local business and watches the budget.",
+          body: "He has lived here his whole life. He watches the budget.",
         },
         {
           href: "/record",
@@ -206,7 +205,7 @@ export const copy = {
     meta: {
       title: "Meet Tom",
       description:
-        "Tom Lampe has lived in Campbell County his whole life. He runs a local business and watches how the county spends. Six terms on Fort Thomas City Council. More than 30 years in business. A record of results on the Fiscal Court.",
+        "Tom Lampe has lived in Campbell County his whole life. He watches how the county spends. Six terms on Fort Thomas City Council. More than 30 years in business. A record of results on the Fiscal Court.",
     },
     hero: {
       eyebrow: "Meet Tom",
@@ -226,7 +225,7 @@ export const copy = {
     roots: {
       eyebrow: "Home",
       heading: "Campbell County, all of it.",
-      body: "Tom has lived in Campbell County his whole life. He belongs to St. Catherine of Siena Parish in Fort Thomas and volunteers there. He has worked to make sure every part of the county shares in its progress, from Newport and Bellevue to Fort Thomas and Alexandria and south into the country.",
+      body: "Tom has lived in Campbell County his whole life. He belongs to St. Thomas Parish in Ft. Thomas and volunteers there. He has worked to make sure every part of the county shares in its progress, from Newport and Bellevue to Fort Thomas and Alexandria and south into the country.",
       imageAlt:
         "Tom Lampe stands with neighbors, parents and children in Tom Lampe T-shirts. They are next to a Keep Tom Lampe sign at a Campbell County parade.",
     },
@@ -723,7 +722,8 @@ export const copy = {
     asideBody:
       "Door hangers, yard signs, mailings and digital ads. That is the whole list. This is a county race, and it is won by talking to people.",
     /** PRE-LAUNCH VERIFY: Kentucky contribution disclosure, lawyer to supply. */
-    disclosure: "{{CONTRIBUTION_DISCLOSURE}}",
+    disclosure:
+      "Contributions to Tom Lampe’s campaign are subject to Kentucky campaign finance law. An individual may contribute up to $3,500 per election. Contributions from corporations, LLCs, LLPs, and partnerships are prohibited. Contributions are not tax deductible.",
   },
 
   joinPage: {
@@ -739,7 +739,8 @@ export const copy = {
     asideBody:
       "Add your name instead. We will keep you posted between now and Election Day, and let you know when we need help.",
     /** PRE-LAUNCH VERIFY: Kentucky contribution disclosure, lawyer to supply. */
-    disclosure: "{{CONTRIBUTION_DISCLOSURE}}",
+    disclosure:
+      "Contributions to Tom Lampe’s campaign are subject to Kentucky campaign finance law. An individual may contribute up to $3,500 per election. Contributions from corporations, LLCs, LLPs, and partnerships are prohibited. Contributions are not tax deductible.",
   },
 
   forms: {
@@ -776,7 +777,6 @@ export const copy = {
       email: "Enter an email address like name@example.com.",
       zip: "Enter a 5-digit ZIP code.",
       phone: "Enter a mobile number like 859-555-0100.",
-      amount: "Enter a dollar amount, numbers only.",
     },
     error: {
       heading: "That didn’t go through.",

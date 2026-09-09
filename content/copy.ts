@@ -212,7 +212,8 @@ export const copy = {
       /** One phrase per line. Rendered as <span className="block">. */
       headlineLines: ["A Neighbor.", "A Leader.", "A Proven Public Servant."],
       lead: "Campbell County has always been home for Tom. A lifelong resident with deep roots in the community, Tom’s commitment to family, faith and service has shaped both the life he’s built here and his approach to serving his neighbors.",
-      imageAlt: "Tom Lampe at home with his wife and their three sons.",
+      imageAlt:
+        "Tom Lampe, at right, with his family on a deck in a wooded backyard.",
     },
     /** Long-form biography. Each paragraph traces to the messaging documents. */
     bio: {

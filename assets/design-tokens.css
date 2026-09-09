@@ -198,7 +198,11 @@
   /* object-position, tuned per photograph against its crop */
   --pos-hero-home: 28% 42%;
   --pos-hero-record: 51% 12%;
-  --pos-hero-meet: 50% 10%;
+  /* The family group photograph is wide and the hero column is not, so the
+     crop is horizontal below 1100. 92% anchors it near the right edge, where
+     Tom stands, and spends the crop on the left of the group instead. 32%
+     drops the window past the tree canopy onto the faces. */
+  --pos-hero-meet: 92% 32%;
 
   --brand-mark-width: 150px;
   --brand-mark-width-lg: 190px;

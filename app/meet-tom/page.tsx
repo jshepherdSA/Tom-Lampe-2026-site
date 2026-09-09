@@ -38,7 +38,7 @@ export default function MeetTomPage() {
 
         <div className="relative h-72 w-full overflow-hidden sm:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-[var(--hero-image-width)] lg:[clip-path:var(--hero-clip)]">
           <Image
-            src="/tom-lampe-family.webp"
+            src="/tom-lampe-family-deck.webp"
             alt={M.hero.imageAlt}
             fill
             priority

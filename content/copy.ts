@@ -120,15 +120,14 @@ export const copy = {
       heading: "Funded by neighbors.",
       body: "Let’s keep Campbell County moving forward. Support Tom Lampe with a donation today and your vote on November 3.",
       otherLabel: "Other Amount",
-      /** amount is structure; note is copy. */
-      levels: [
-        { amount: 50, note: "Puts yard signs on a neighborhood block." },
-        { amount: 100, note: "Covers a week of mailings to undecided voters." },
-        {
-          amount: 250,
-          note: "Funds a digital ad run across the river cities.",
-        },
-      ],
+      /**
+       * Pure structure now. Each amount used to carry a sentence explaining
+       * what it buys; the campaign asked for compact tiles instead, so the
+       * only line left under the row is the ceiling.
+       */
+      levels: [100, 250, 500, 1000, 2200],
+      /** NEW COPY, needs the campaign's approval. Marks the legal ceiling. */
+      maxNote: "$2,200 is the most one person may give.",
       /**
        * WinRed takes the contribution. Every amount button links here with
        * `amount` and `sc` appended, so no card or donor detail is ever typed
@@ -718,7 +717,7 @@ export const copy = {
       "Door hangers, yard signs, mailings and digital ads. That is the whole list. This is a county race, and it is won by talking to people.",
     /** PRE-LAUNCH VERIFY: Kentucky contribution disclosure, lawyer to supply. */
     disclosure:
-      "Contributions to Tom Lampe’s campaign are subject to Kentucky campaign finance law. An individual may contribute up to $3,500 per election. Contributions from corporations, LLCs, LLPs, and partnerships are prohibited. Contributions are not tax deductible.",
+      "Contributions to Tom Lampe’s campaign are subject to Kentucky campaign finance law. An individual may contribute up to $2,200 per election. Contributions from corporations, LLCs, LLPs, and partnerships are prohibited. Contributions are not tax deductible.",
   },
 
   footer: {

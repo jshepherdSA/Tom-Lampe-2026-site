@@ -53,21 +53,28 @@ export function DonateModule({ tone = "dark" }: { tone?: "dark" | "light" }) {
   const quiet = onDark ? "text-muted-on-inverse" : "text-ink-muted";
 
   return (
-    <div className="flex flex-col gap-s5">
-      <ul aria-label={D.heading} className="grid gap-s4 sm:grid-cols-3">
-        {D.levels.map((level) => (
-          <li key={level.amount} className="flex flex-col gap-s2">
+    <div className="flex flex-col gap-s4">
+      {/* The five amounts hold one row from the lg breakpoint up, where the
+          module sits beside its heading. Other Amount takes the line below:
+          it is the widest control by some way, and keeping it in the row is
+          what forced the amounts to wrap once they grew. */}
+      <ul
+        aria-label={D.heading}
+        className="flex flex-wrap items-center gap-s2 lg:flex-nowrap"
+      >
+        {D.levels.map((amount) => (
+          <li key={amount} className="lg:min-w-0 lg:flex-1">
             <a
-              href={donateHref(level.amount)}
-              aria-label={`Donate $${level.amount.toLocaleString()}`}
+              href={donateHref(amount)}
+              aria-label={`Donate $${amount.toLocaleString()}`}
               className={cn(
                 buttonVariants({ variant: "donate", size: "cta-lg" }),
-                "w-full",
+                "px-s5 text-[length:var(--size-donate-tile)]",
+                "whitespace-nowrap lg:w-full lg:px-s3",
               )}
             >
-              ${level.amount.toLocaleString()}
+              ${amount.toLocaleString()}
             </a>
-            <p className={cn("t-small", quiet)}>{level.note}</p>
           </li>
         ))}
       </ul>
@@ -77,7 +84,7 @@ export function DonateModule({ tone = "dark" }: { tone?: "dark" | "light" }) {
         className={cn(
           buttonVariants({
             variant: onDark ? "outlineInverse" : "outline2",
-            size: "cta-lg",
+            size: "cta",
           }),
           "self-start",
         )}
@@ -85,7 +92,10 @@ export function DonateModule({ tone = "dark" }: { tone?: "dark" | "light" }) {
         {D.otherLabel}
       </a>
 
-      <p className={cn("t-small measure", quiet)}>{D.processorNote}</p>
+      <div className={cn("t-small measure flex flex-col gap-s1", quiet)}>
+        <p>{D.maxNote}</p>
+        <p>{D.processorNote}</p>
+      </div>
     </div>
   );
 }

@@ -66,6 +66,10 @@
   --size-nav: 16px;
   /* record grid: lead figure. Its own token so the lead can move without
      dragging every --size-stat on the site with it. */
+  /* The donate tiles read as figures rather than as body-sized buttons, and
+     the shadcn base sets text-sm on every button, so the tiles have to name
+     their own size to beat it. */
+  --size-donate-tile: var(--size-h3);
   --size-record-lead: 56px;
   /* below 1024 the tile cannot hold a 56px range and a readable claim */
   --size-record-lead-m: 36px;

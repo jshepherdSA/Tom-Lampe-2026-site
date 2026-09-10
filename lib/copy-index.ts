@@ -118,14 +118,6 @@ const RULES: Rule[] = [
     hint: copy.home.hero.headlineLines.join(" "),
   },
   {
-    match: /^home\.join\./,
-    page: "Home",
-    pageOrder: 1,
-    section: "Sign-up block",
-    sectionOrder: 2,
-    hint: copy.home.join.heading,
-  },
-  {
     match: /^home\.donate\./,
     page: "Home",
     pageOrder: 1,
@@ -255,37 +247,6 @@ const RULES: Rule[] = [
   },
 
   /* ------------------------------------------------------------- join page */
-  {
-    match: /^joinPage\.(eyebrow|heading|lead)$/,
-    page: "Join the Team page",
-    pageOrder: 4,
-    section: "Header",
-    sectionOrder: 1,
-    hint: copy.joinPage.heading,
-    fields: [/\.eyebrow$/, /\.heading$/, /\.lead$/],
-  },
-  {
-    match: /^joinPage\.disclosure$/,
-    page: "Join the Team page",
-    pageOrder: 4,
-    section: "Legal note under the amounts",
-    sectionOrder: 2,
-  },
-  {
-    match: /^joinPage\.aside/,
-    page: "Join the Team page",
-    pageOrder: 4,
-    section: "Sign-up block",
-    sectionOrder: 3,
-    hint: copy.joinPage.asideHeading,
-  },
-  {
-    match: /^joinPage\.meta\./,
-    page: "Join the Team page",
-    pageOrder: 4,
-    section: "Browser tab and Google listing (not on the page)",
-    sectionOrder: 99,
-  },
 
   /* ----------------------------------------------------------- donate page */
   {
@@ -330,32 +291,6 @@ const RULES: Rule[] = [
     section: "Menu",
     sectionOrder: 2,
     fields: [/nav\.items\[/, /nav\.donate$/],
-  },
-  {
-    match: /^forms\.join\./,
-    page: "Every page",
-    pageOrder: 6,
-    section: "Sign-up form",
-    sectionOrder: 3,
-    hint: copy.forms.join.heading,
-    // submit and consent are stored above the fields but render below them
-    fields: [
-      /join\.heading$/,
-      /join\.body$/,
-      /join\.fields\./,
-      /join\.involvementLegend$/,
-      /join\.involvement\[/,
-      /join\.submit$/,
-      /join\.consent$/,
-    ],
-  },
-  {
-    match: /^forms\./,
-    page: "Every page",
-    pageOrder: 6,
-    section: "Messages after someone submits the form",
-    sectionOrder: 4,
-    fields: [/^forms\.success\./, /^forms\.error\./, /^forms\.validation\./],
   },
   {
     match: /^footer\.tagline$/,
@@ -457,7 +392,6 @@ const ROLE_NAMES: Record<string, string> = {
   retry: "Button",
   linkLabel: "Link text",
   note: "Note",
-  consent: "Consent text",
   disclosure: "Disclosure",
   tagline: "Tagline",
   copyright: "Copyright",
@@ -466,7 +400,6 @@ const ROLE_NAMES: Record<string, string> = {
   otherLabel: "Other-amount button",
   processorUrl: "WinRed donation page (changes where the money goes)",
   processorNote: "Note under the amounts",
-  involvementLegend: "Checklist heading",
   jumpNavHeading: "Jump-links heading",
   themeEyebrow: "Small label above every theme",
   code: "Big number",
@@ -501,18 +434,11 @@ function describeRole(path: string): string {
     [/levels\[(\d+)\]\.note$/, (m) => `Amount ${+m[1] + 1} note`],
     [/^nav\.items\[(\d+)\]\.label$/, (m) => `Menu item ${+m[1] + 1}`],
     [/^social\[(\d+)\]\.label$/, (m) => `Social link ${+m[1] + 1} name`],
-    [/involvement\[(\d+)\]\.label$/, (m) => `Checkbox ${+m[1] + 1}`],
     [
       /columns\[(\d+)\]\.links\[(\d+)\]\.label$/,
       (m) => `Column ${+m[1] + 1}, link ${+m[2] + 1}`,
     ],
     [/columns\[(\d+)\]\.heading$/, (m) => `Column ${+m[1] + 1} heading`],
-    [
-      /^forms\.join\.fields\.phoneOptional$/,
-      () => "Field label: Mobile, the optional note",
-    ],
-    [/^forms\.join\.fields\.(\w+)$/, (m) => `Field label: ${titleCase(m[1])}`],
-    [/^forms\.validation\.(\w+)$/, (m) => `Error message: ${titleCase(m[1])}`],
     [/items\[(\d+)\]\.(\w+)$/, (m) => `Card ${+m[1] + 1} ${m[2]}`],
   ];
   for (const [re, fn] of pairs) {

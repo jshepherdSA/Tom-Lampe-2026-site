@@ -90,7 +90,6 @@ export const copy = {
     items: [
       { href: "/meet-tom", label: "Meet Tom" },
       { href: "/record", label: "The Record" },
-      { href: "/join", label: "Join the Team" },
     ],
     donate: "Donate",
   },
@@ -112,14 +111,9 @@ export const copy = {
         "Campbell County First.",
       ],
       lead: "A vote for Tom Lampe means a Campbell County where families feel safe, roads and bridges are dependable, taxes are kept under control and essential services work, no matter where you live.",
-      primaryCta: "Join the Team",
       secondaryCta: "Donate",
       imageAlt:
         "Tom Lampe marches in a Campbell County parade. He waves an American flag next to a woman in a red campaign shirt. Tom Lampe yard signs and neighbors line the street.",
-    },
-    join: {
-      heading: "Join the team",
-      body: "Add your name and we will keep you posted between now and November 3.",
     },
     donate: {
       eyebrow: "Chip in",
@@ -727,66 +721,6 @@ export const copy = {
       "Contributions to Tom Lampe’s campaign are subject to Kentucky campaign finance law. An individual may contribute up to $3,500 per election. Contributions from corporations, LLCs, LLPs, and partnerships are prohibited. Contributions are not tax deductible.",
   },
 
-  joinPage: {
-    meta: {
-      title: "Join the Team",
-      description:
-        "Back Tom Lampe for Campbell County Commissioner. Small gifts from neighbors pay for this campaign.",
-    },
-    eyebrow: "Join the team",
-    heading: "The team is the people who pay for it.",
-    lead: "This campaign runs on small gifts from Campbell County neighbors. Chip in and you are on the team.",
-    asideHeading: "Not ready to give?",
-    asideBody:
-      "Add your name instead. We will keep you posted between now and Election Day, and let you know when we need help.",
-    /** PRE-LAUNCH VERIFY: Kentucky contribution disclosure, lawyer to supply. */
-    disclosure:
-      "Contributions to Tom Lampe’s campaign are subject to Kentucky campaign finance law. An individual may contribute up to $3,500 per election. Contributions from corporations, LLCs, LLPs, and partnerships are prohibited. Contributions are not tax deductible.",
-  },
-
-  forms: {
-    join: {
-      heading: "Join the team",
-      body: "Add your name and we’ll keep you posted.",
-      submit: "Join the Team",
-      consent:
-        "By submitting this form and providing your mobile number, you consent to receive voter contact, donation asks and informational messages from the campaign. Msg & data rates may apply. Msg frequency varies. Reply STOP to unsubscribe, HELP for help.",
-      fields: {
-        firstName: "First name",
-        lastName: "Last name",
-        email: "Email",
-        phone: "Mobile",
-        phoneOptional: "(optional)",
-        zip: "ZIP",
-      },
-      involvementLegend: "I’d like to help by",
-      involvement: [
-        { id: "opt-1", label: "Putting a yard sign in my yard" },
-        { id: "opt-2", label: "Volunteering or knocking doors" },
-        { id: "opt-3", label: "Hosting a meet-and-greet" },
-        { id: "opt-4", label: "Adding my name as a public supporter" },
-        { id: "opt-5", label: "Making calls or sending texts" },
-        { id: "opt-6", label: "Contributing to the campaign" },
-      ],
-    },
-    success: {
-      heading: "You’re on the team.",
-      body: "Thanks for signing up. Watch your inbox. The campaign will be in touch about yard signs, events and ways to help between now and Election Day.",
-    },
-    validation: {
-      required: "Please fill this in.",
-      email: "Enter an email address like name@example.com.",
-      zip: "Enter a 5-digit ZIP code.",
-      phone: "Enter a mobile number like 859-555-0100.",
-    },
-    error: {
-      heading: "That didn’t go through.",
-      body: "Something went wrong on our end. Your details were not saved.",
-      retry: "Try again",
-    },
-  },
-
-  /* ---------------------------------------------------------------- footer */
   footer: {
     tagline:
       "Results you can check. Your money watched closely. Campbell County first, in every town from the river to the county line.",
@@ -796,7 +730,6 @@ export const copy = {
         links: [
           { href: "/meet-tom", label: "Meet Tom" },
           { href: "/record", label: "The Record" },
-          { href: "/join", label: "Join the Team" },
           { href: "/donate", label: "Donate" },
         ],
       },

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { JoinForm } from "@/components/join-form";
 import { RecordGrid } from "@/components/record-grid";
 import { copy } from "@/content/copy";
 import { HERO_IMAGE_SIZES } from "@/lib/tokens";
@@ -103,7 +102,7 @@ export default function RecordPage() {
 
       {/* close */}
       <section aria-labelledby="close-h" className="section-y bg-page">
-        <div className="container-page grid items-start gap-s7 lg:grid-cols-2 lg:gap-s8">
+        <div className="container-page">
           <div>
             <h2 id="close-h" className="t-h2 text-heading">
               {R.close.heading}
@@ -118,15 +117,7 @@ export default function RecordPage() {
                 {R.close.donateCta}
               </Button>
             </div>
-          </div>
-          <div className="border-2 border-inverse bg-surface p-s5">
-            <h3 className="t-h3 text-heading">{copy.forms.join.heading}</h3>
-            <p className="t-small mt-s2 mb-s5 text-ink-muted">
-              {copy.forms.join.body}
-            </p>
-            <JoinForm variant="compact" tone="light" />
-          </div>
-        </div>
+          </div>        </div>
       </section>
     </>
   );

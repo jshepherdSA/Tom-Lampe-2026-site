@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { DonateModule } from "@/components/donate-module";
-import { JoinForm } from "@/components/join-form";
 import { RecordGrid } from "@/components/record-grid";
 import { Reveal } from "@/components/reveal";
 import { copy } from "@/content/copy";
@@ -31,27 +30,12 @@ export default function HomePage() {
 
             <div className="mt-s6 flex flex-wrap gap-s3 lg:hidden">
               <Button
-                variant="primary"
-                size="cta-lg"
-                render={<a href="#join" />}
-              >
-                {H.hero.primaryCta}
-              </Button>
-              <Button
                 variant="outlineInverse"
                 size="cta-lg"
                 render={<Link href="/donate" />}
               >
                 {H.hero.secondaryCta}
               </Button>
-            </div>
-
-            <div className="mt-s5 hidden max-w-2xl border border-rule bg-inverse p-s5 lg:block">
-              <h2 className="t-h3 text-on-inverse">{H.join.heading}</h2>
-              <p className="t-small mt-s2 mb-s4 text-muted-on-inverse">
-                {H.join.body}
-              </p>
-              <JoinForm variant="inline" tone="dark" />
             </div>
           </div>
         </div>
@@ -65,23 +49,6 @@ export default function HomePage() {
             sizes={HERO_IMAGE_SIZES}
             className="object-cover object-[var(--pos-hero-home)]"
           />
-        </div>
-      </section>
-
-      {/* mobile home for the hero form */}
-      <section
-        id="join"
-        aria-labelledby="join-h"
-        className="scroll-mt-24 bg-inverse py-s7 lg:hidden"
-      >
-        <div className="container-page">
-          <h2 id="join-h" className="t-h3 text-on-inverse">
-            {H.join.heading}
-          </h2>
-          <p className="t-small mt-s2 mb-s5 text-muted-on-inverse">
-            {H.join.body}
-          </p>
-          <JoinForm variant="inline" tone="dark" />
         </div>
       </section>
 

@@ -198,11 +198,12 @@
   /* object-position, tuned per photograph against its crop */
   --pos-hero-home: 28% 42%;
   --pos-hero-record: 51% 12%;
-  /* The family group photograph is wide and the hero column is not, so the
-     crop is horizontal below 1100. 92% anchors it near the right edge, where
-     Tom stands, and spends the crop on the left of the group instead. 32%
-     drops the window past the tree canopy onto the faces. */
-  --pos-hero-meet: 92% 32%;
+  /* The asset is cropped so the group is already centred in it: heads at
+     11.8%, feet at 96.1%, Tom from 78.5% to 91.4%. Y therefore sits at the
+     middle. X stays right of centre because the hero column turns portrait
+     around 1024, and the crop that follows has to come off the left of the
+     group rather than off Tom. */
+  --pos-hero-meet: 85% 50%;
 
   --brand-mark-width: 150px;
   --brand-mark-width-lg: 190px;

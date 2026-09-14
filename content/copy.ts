@@ -94,11 +94,12 @@ export const copy = {
     donate: "Donate",
   },
 
-  social: [
-    { label: "Facebook", href: "{{SOCIAL_1_URL}}" },
-    { label: "Instagram", href: "{{SOCIAL_2_URL}}" },
-    { label: "X", href: "{{SOCIAL_3_URL}}" },
-  ],
+  /**
+   * Instagram and X are left out until the campaign has accounts to link.
+   * Re-adding one is a line here: `{ label: "Instagram", href: "..." }`. Its
+   * mark is already in components/social-links.tsx, keyed by label.
+   */
+  social: [{ label: "Facebook", href: "https://www.facebook.com/KeepLampe/" }],
 
   /* ------------------------------------------------------------------ home */
   home: {

@@ -168,7 +168,7 @@ export const copy = {
         },
         {
           claim:
-            "Tom has supported funding for the Northern Kentucky Drug Strike Force while supporting treatment, recovery, police social workers and crisis intervention contributing to a drop in overdose deaths.",
+            "Tom has supported funding for the Northern Kentucky Drug Strike Force and Northern Kentucky Office of Drug Policy while supporting treatment, recovery, police social workers and crisis intervention contributing to a drop in overdose deaths.",
           figure: "54 → 10",
           label: "Fatal overdoses per year, 2020 to 2024",
           tier: "standard",

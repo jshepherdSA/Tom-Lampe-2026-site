@@ -62,7 +62,7 @@ export const copy = {
     siteTitle: "Tom Lampe for Campbell County Commissioner",
     titleTemplate: "%s | Tom Lampe for Campbell County Commissioner",
     description:
-      "Tom Lampe has lived in Campbell County his whole life. He watches how the county spends your money. Tax rates are down every year since 2020. The county saved more than $2 million for taxpayers and built up its emergency services.",
+      "Tom Lampe has lived in Campbell County his whole life. He watches how the county spends your money. Tax rates are down every year since 2020. The county saved $3.4 million for taxpayers and built up its emergency services.",
     ogTitle: "Proven Results. Taxpayer Accountability. Campbell County First.",
     ogDescription:
       "Tom brings experience. He would rather you judge him on results.",
@@ -237,7 +237,7 @@ export const copy = {
     meta: {
       title: "The Record",
       description:
-        "What Tom Lampe has done as county commissioner. Tax rates down every year since 2020. More than $2 million saved on emergency radios. Fatal overdoses down from 54 a year to 10. Work delivered in every community.",
+        "What Tom Lampe has done as county commissioner. Tax rates down every year since 2020. $3.4 million saved on emergency radios. Fatal overdoses down from 54 a year to 10. Work delivered in every community.",
     },
     hero: {
       eyebrow: "The Record",
@@ -289,8 +289,8 @@ export const copy = {
           },
           {
             claim:
-              "Tom voted to partner with Kenton and Boone Counties on a new emergency radio system saving the county over $2 million and improving overall public safety.",
-            figure: "$2M+",
+              "Tom voted to partner with Kenton and Boone Counties on a new emergency radio system saving the county $3.4 million and improving overall public safety.",
+            figure: "$3.4M",
             label: "Saved for taxpayers",
             tier: "standard",
           },
@@ -350,13 +350,13 @@ export const copy = {
           {
             claim:
               "Tom helped modernize emergency communications so police, fire and EMS can coordinate across community lines, improving public safety while saving Campbell County taxpayers millions.",
-            figure: "$2M+",
+            figure: "$3.4M",
             label: "Saved while modernizing emergency communications software",
             tier: "lead",
           },
           {
             claim:
-              "Tom voted to expand the police social-worker services throughout the county. Four social workers now work with officers to help families facing addiction, mental-health emergencies and other complex crises.",
+              "Tom voted to expand the police social-worker services throughout the county. Three social workers and a supervisor now work with officers to help families facing addiction, mental-health emergencies and other complex crises.",
             figure: "$210,000",
             label: "New ambulance",
             tier: "standard",
@@ -365,7 +365,7 @@ export const copy = {
             claim:
               "Started the police social worker program with three social workers and a supervisor. Now an officer sent to a mental health or family crisis brings trained help along.",
             figure: "4",
-            label: "Police social-worker program",
+            label: "Social workers and a supervisor",
             tier: "standard",
           },
           {
@@ -474,7 +474,7 @@ export const copy = {
             claim:
               "Takes care of Route 536. Supports the fast track completion of 536 connector. That means drainage, potholes, snow plowing and hillsides that slip.",
             figure: "300",
-            label: "Lane miles maintained",
+            label: "Miles of road maintained",
             tier: "standard",
           },
           {
@@ -562,7 +562,7 @@ export const copy = {
             claim:
               "Tom supported $1M in Community Block Grant Funding to rehabilitate neglected properties for private homeownership while limiting the cost to county taxpayers.",
             figure: "$1M",
-            label: "Sought in CDBG funding",
+            label: "Supported in CDBG funding",
             tier: "standard",
           },
           {

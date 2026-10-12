@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 import "./globals.css";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { SiteHeader } from "@/components/site-header";
@@ -56,6 +57,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <meta name="theme-color" content={THEME_COLOR} />
       </head>
       <body className="flex min-h-full flex-col">
+        {/* Simpli.fi audience tag, on every page. afterInteractive keeps it
+            off the critical path; it still fires well before a visitor could
+            leave. Next navigates between pages on the client, so this runs
+            once per full page load rather than once per route change. */}
+        <Script
+          id="simplifi-tag"
+          src="https://tag.simpli.fi/sifitag/18e54d03-b8d9-47fa-87f0-ad0c72b1925f"
+          strategy="afterInteractive"
+        />
         <ScrollToTop />
         <SiteHeader />
         <main id="main" className="flex-1">
